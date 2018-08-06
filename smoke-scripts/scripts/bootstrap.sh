@@ -7,7 +7,7 @@ sudo apt-get install -y curl python3 python3-pip
 pip3 install --user virtualenvwrapper
 VIRTUALENVWRAPPER_PYTHON=$(which python3)
 PATH="$PATH:$HOME/.local/bin"
-source "$HOME/.local/bin/virtualenvwrapper.sh"
+source $(which virtualenvwrapper.sh)
 
 mkvirtualenv smoke-editor
 
@@ -17,7 +17,6 @@ curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.11/install.sh | 
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && . "$NVM_DIR/bash_completion"
 
 nvm install 8.11.0
 nvm alias default v8.11.0
