@@ -1,0 +1,15 @@
+#!/bin/bash
+
+#python3 virtualenv wrapper setup
+VIRTUALENVWRAPPER_PYTHON=$(which python3)
+PATH="$PATH:$HOME/.local/bin"
+source "$(which virtualenvwrapper.sh)"
+workon smoke-editor
+
+pip install -r requirements-dev.txt
+pip install -e .
+smoke init
+echo \
+"""
+run \`flask run -h 0.0.0.0 -p 8000\` from $(pwd) to start local server (network visible).
+"""

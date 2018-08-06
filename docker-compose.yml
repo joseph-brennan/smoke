@@ -1,0 +1,22 @@
+version: '3'
+services:
+  web:
+    image: "lsmith202/smoke-base"
+    entrypoint:
+      - bash
+      - -l
+      - /smoke/run.sh
+    volumes:
+      - ./smoke-editor:/smoke
+    ports:
+      - "8080:8080"
+  backend:
+    image: "lsmith202/smoke-base"
+    entrypoint:
+      - bash
+      - -l
+      - /smoke/run.sh
+    volumes:
+      - ./smoke-backend:/smoke
+    ports:
+      - "8000:8000"

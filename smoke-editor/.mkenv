@@ -1,0 +1,11 @@
+#!/bin/bash
+# nvm setup
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && source "$NVM_DIR/nvm.sh"
+nvm use default
+
+yarn
+echo \
+"""
+run \`HOST=0.0.0.0 yarn dev\` from $(pwd)/src to start local server (network visible).
+"""

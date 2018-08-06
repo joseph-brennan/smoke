@@ -1,0 +1,3 @@
+[submodule "smokr"]
+	path = smokr
+	url = https://github.com/LSmith-Zenoscave/smokr
