@@ -29,4 +29,4 @@ install:
   - bash .travis/install.sh
 
 script:
-- bash .travis/run.sh
+  - bash .travis/run.sh
