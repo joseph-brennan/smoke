@@ -7,9 +7,10 @@ services:
       - -l
       - /smoke/run.sh
     volumes:
-      - ./smoke-editor:/smoke
+      - ${PWD}/smoke-editor:/smoke
     ports:
       - "8080:8080"
+    tty: true
   backend:
     build: ./smoke-scripts
     entrypoint:
@@ -17,6 +18,7 @@ services:
       - -l
       - /smoke/run.sh
     volumes:
-      - ./smoke-backend:/smoke
+      - ${PWD}/smoke-backend:/smoke
     ports:
       - "8000:8000"
+    tty: true

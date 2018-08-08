@@ -10,7 +10,10 @@ RUN apt-get install -y --no-install-recommends \
   python3 \
   python3-pip \
   python3-distutils \
-  python3-pkg-resources
+  python3-pkg-resources \
+  python \
+  python-pip \
+  python-pkg-resources
 RUN rm -rf /var/lib/apt/lists/*
 
 COPY ./scripts/env.sh /bin/smoke-env

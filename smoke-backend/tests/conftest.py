@@ -1,9 +1,9 @@
 import json
 import pytest
 
-from smoke.models import User
-from smoke.app import create_app
-from smoke.extensions import db as _db
+from smoke_backend.models import User
+from smoke_backend.app import create_app
+from smoke_backend.extensions import db as _db
 
 
 @pytest.fixture

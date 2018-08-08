@@ -1,2 +1,2 @@
 FLASK_ENV=development
-FLASK_APP="smoke.app:create_app"
+FLASK_APP="smoke_backend.app:create_app"

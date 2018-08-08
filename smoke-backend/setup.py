@@ -1,10 +1,10 @@
 from setuptools import setup, find_packages
 
-__version__ = '0.1'
+__version__ = '0.1.0'
 
 
 setup(
-    name='smoke',
+    name='smoke_backend',
     version=__version__,
     packages=find_packages(exclude=['tests']),
     install_requires=[
@@ -20,7 +20,7 @@ setup(
     ],
     entry_points={
         'console_scripts': [
-            'smoke = smoke.manage:cli'
+            'smoke_backend = smoke_backend.manage:cli'
         ]
     }
 )

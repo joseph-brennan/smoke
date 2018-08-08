@@ -1,7 +1,7 @@
 import factory
 from pytest_factoryboy import register
 
-from smoke.models import User
+from smoke_backend.models import User
 
 
 @register

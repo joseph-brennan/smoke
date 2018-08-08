@@ -1,7 +1,7 @@
 #!/bin/bash
 
 sudo apt-get update
-sudo apt-get install -y curl python3 python3-pip
+sudo apt-get install -y curl python3 python3-pip python3-dev python python-pip python-dev
 
 #python3 virtualenv wrapper setup
 pip3 install --user virtualenvwrapper
