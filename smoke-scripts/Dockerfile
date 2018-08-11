@@ -16,8 +16,8 @@ RUN apt-get install -y --no-install-recommends \
   python-pkg-resources
 RUN rm -rf /var/lib/apt/lists/*
 
-COPY ./scripts/env.sh /bin/smoke-env
-RUN chmod +x /bin/smoke-env
+COPY ./scripts/smoke-env /usr/local/bin/smoke-env
+RUN chmod +x /usr/local/bin/smoke-env
 
 COPY ./scripts/bootstrap.sh /tmp/bootstrap
 RUN bash /tmp/bootstrap
