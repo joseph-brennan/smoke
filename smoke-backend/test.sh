@@ -8,7 +8,7 @@ if [ -f ${SMOKE_ENV} ] ; then
   cd $(dirname $0)
   source ${SMOKE_ENV}
   mkenv
-  flask run -h 0.0.0.0 -p 8000
+  tox
 else
   echo "smoke-env not found."
   exit 1

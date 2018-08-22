@@ -5,7 +5,7 @@ services:
     entrypoint:
       - bash
       - -l
-      - /smoke/run.sh
+      - /smoke/test.sh
     volumes:
       - ${PWD}/smoke-editor:/smoke
     ports:
@@ -16,7 +16,7 @@ services:
     entrypoint:
       - bash
       - -l
-      - /smoke/run.sh
+      - /smoke/test.sh
     volumes:
       - ${PWD}/smoke-backend:/smoke
     ports:

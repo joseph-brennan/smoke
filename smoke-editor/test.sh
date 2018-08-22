@@ -7,10 +7,10 @@ SMOKE_ENV=${SMOKE_ENV:-../smoke-scripts/scripts/smoke-env}
 if [ -f ${SMOKE_ENV} ] ; then
   cd $(dirname $0)
   source ${SMOKE_ENV}
+  export CHROME_BIN=$(which google-chrome)
   mkenv
-  flask run -h 0.0.0.0 -p 8000
+  yarn unit
 else
   echo "smoke-env not found."
   exit 1
 fi
-
