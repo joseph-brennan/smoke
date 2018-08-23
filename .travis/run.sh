@@ -4,7 +4,7 @@
 export PATH="${PATH}:${HOME}/.local/bin"
 source smoke-env
 
-for part in smoke-editor smoke-backend ; do
+for part in smoke-editor smoke-backend smokr; do
     pushd ${part}
     mkenv
     set -e
