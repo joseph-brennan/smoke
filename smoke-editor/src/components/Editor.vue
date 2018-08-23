@@ -3,7 +3,7 @@
     <brace style="height: 500px"
       :fontsize="'12px'"
       :theme="'github'"
-      :mode="'python3'"
+      :mode="'python'"
       :codefolding="'markbegin'"
       :softwrap="'free'"
       :selectionstyle="'text'"

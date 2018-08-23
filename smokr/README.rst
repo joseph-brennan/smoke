@@ -6,9 +6,9 @@ Smokr
 .. image:: https://img.shields.io/pypi/v/smokr.svg
         :target: https://pypi.python.org/pypi/smokr
 
-.. image:: https://img.shields.io/travis/LSmith-Zenoscave/smokr.svg
+.. image:: https://img.shields.io/travis/com/msudenvercs/smoke.svg
         :alt: Travis
-        :target: https://www.travis-ci.org/LSmith-Zenoscave/smokr
+        :target: https://www.travis-ci.com/msudenvercs/smoke
 
 .. image:: https://readthedocs.org/projects/smokr/badge/?version=latest
         :target: https://smokr.readthedocs.io/en/latest/?badge=latest
