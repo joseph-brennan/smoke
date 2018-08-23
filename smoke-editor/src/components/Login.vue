@@ -59,12 +59,8 @@ export default {
   },
 
   methods: {
-    submit (redir) {
-      if (redir) {
-        Auth.login(this, this.credentials, 'home')
-      } else {
-        Auth.login(this, this.credentials)
-      }
+    submit () {
+      Auth.login(this, this.credentials)
     },
     geterror () {
       return this.error.msg || this.error.message || ''
