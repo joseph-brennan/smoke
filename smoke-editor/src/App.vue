@@ -5,8 +5,8 @@
   </div>
 </template>
 
-<style lang="sass">
-@import '../node_modules/bulma/bulma.sass'
+<style>
+@import '../node_modules/bulma/css/bulma.css'
 </style>
 
 
