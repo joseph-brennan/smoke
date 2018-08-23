@@ -1,0 +1,24 @@
+dist: trusty
+language: python
+python:
+  - 3.6
+  - 3.5
+  - 3.4
+  - 2.7
+install: bash .travis/install-dependencies.sh
+script:
+  - tox
+deploy:
+  provider: pypi
+  user: lsmith_zeno
+  password:
+    secure: WzMKMjKOapOqSZmhk90m8jd+0Qf7o3ItXgkM64rKqX3nBggo60L8C59CjUgSkYunjH/8zbnBFa4r8eEl5PE3mXqOSI/VfERRWaK6EIWz2vkWhzjEtwmOgRtfRjAANwsmPhNTUO0u0TIz1Xb4CX9u06j6iYQrtVXz3xLCQfwJJs6UgI62iHVfBA3HPPkEIFwYs31ssD9kRVk/5mB2wLFemteAQNP5T+5x3Iw7cUEE0FtmXvw5KPBevhLZ/a9jO3C6IZaBCHIH6GIW9CghpSotib8QYwfX6zOg2rigLCaDqFQYrrzZikiRUyAEpEetqnS5NvWNnzyGgh2D4OXzSuz/SlCVGPWMfOYNMFi1+v9fBw/JHwU3xqxDp9OhUZIBxzxL5LCRz6yEwnF1XLj77bSZwIZdodYZAzeubG6SD61u73yxP62vKA4ZlS8Hxj+Z9cKpyau0qsb4kQAYAdWJRg7P7jLWS9Vo8rjKX/pukLMQ+5uH0r8CUUo5E5L2iGXEg+JurQlMRpajDskfAV5Wzf4pQAtZqQVRrZ4+I355STZbLfbqtAvKeJ/VWgeu0+6fySw+jCvZ4O6l+vSEATR00yIZcu7veCTZfKtivtU0n1K8erYZFg42Be5OhpIc/eFXcu7d0Sb3Xl65NDxC9oV6Kq48jYgLeMOOtoM4d6KOjX/IVkA=
+  on:
+    tags: true
+    distributions: sdist bdist_wheel
+    repo: LSmith-Zenoscave/smokr
+    branch: master
+    python: 3.6
+
+after_success:
+  - bash <(curl -s https://codecov.io/bash)
