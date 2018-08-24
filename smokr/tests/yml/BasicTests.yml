@@ -1,0 +1,27 @@
+---
+description: 'Basic Tests'
+tests:
+  - name: 'Large input'
+    input: |+
+        5
+        1 2 -2 257 -3
+    output: |+
+        1
+  - name: 'Equal but opposite'
+    input: |+
+      2
+      -5 5
+    output: |+
+      5
+  - name: 'No values'
+    input: |+
+      0
+
+    output: |+
+      0
+  - name: 'Single Value'
+    input: |+
+      1
+      17
+    output: |+
+      17

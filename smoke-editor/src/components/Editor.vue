@@ -1,9 +1,9 @@
 <template>
   <div>
     <brace style="height: 500px"
-      :fontsize="'12px'" 
+      :fontsize="'12px'"
       :theme="'github'"
-      :mode="'json'"
+      :mode="'python'"
       :codefolding="'markbegin'"
       :softwrap="'free'"
       :selectionstyle="'text'"

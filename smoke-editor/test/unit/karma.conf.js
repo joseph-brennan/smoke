@@ -11,8 +11,14 @@ module.exports = function (config) {
     // 1. install corresponding karma launcher
     //    http://karma-runner.github.io/0.13/config/browsers.html
     // 2. add it to the `browsers` array below.
-    browsers: ['Chrome'],
-    frameworks: ['mocha', 'chai', 'phantomjs-shim'],
+    browsers: ['ChromeHeadlessNoSandbox'],
+    customLaunchers: {
+      ChromeHeadlessNoSandbox: {
+        base: 'ChromeHeadless',
+        flags: ['--no-sandbox']
+      }
+    },
+    frameworks: ['mocha', 'chai'],
     reporters: ['spec', 'coverage'],
     files: [
       '../../node_modules/babel-polyfill/dist/polyfill.js',
@@ -23,14 +29,14 @@ module.exports = function (config) {
     },
     webpack: webpackConfig,
     webpackMiddleware: {
-      stats:   'errors-only'
+      stats: 'errors-only'
     },
     coverageReporter: {
       dir: './coverage',
       reporters: [
         { type: 'lcov', subdir: '.' },
         { type: 'text-summary' },
-        { type: 'json',  subdir: '.' }
+        { type: 'json', subdir: '.' }
       ]
     }
   })
