@@ -1,10 +1,10 @@
 #!/bin/bash
 
 #python3 virtualenv wrapper setup
-VIRTUALENVWRAPPER_PYTHON=$(which python3)
+VIRTUALENVWRAPPER_PYTHON=$(which python)
 PATH="$PATH:$HOME/.local/bin"
 source "$(which virtualenvwrapper.sh)"
 workon smoke-editor
 
-pip install -q -r requirements-dev.txt
-pip install -U -q -e .
+pip install -q -r --user requirements-dev.txt
+pip install -U -q --user -e .
