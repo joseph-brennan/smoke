@@ -17,4 +17,4 @@ before_install:
   - sh -e /etc/init.d/xvfb start
 
 script:
-  - bash .travis/run.sh
+  - .travis/run.sh
