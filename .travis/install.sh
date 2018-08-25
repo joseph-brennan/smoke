@@ -1,7 +1,7 @@
 #!/bin/bash
 bash smoke-scripts/scripts/bootstrap.sh
 mkdir -p "${HOME}/.local/bin"
-cp smoke-scripts/scripts/env.sh ${HOME}/.local/bin/smoke-env
+cp smoke-scripts/scripts/smoke-env ${HOME}/.local/bin/smoke-env
 chmod +x ${HOME}/.local/bin/smoke-env
 export PATH="${PATH}:${HOME}/.local/bin"
 source smoke-env
