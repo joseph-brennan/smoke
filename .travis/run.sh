@@ -1,16 +1,14 @@
 #!/bin/bash
-# make sure failing tests cause failing
-
 export PATH="${PATH}:${HOME}/.local/bin"
-source smoke-env
 pushd $(dirname $0)/..
+
+# make sure failing tests cause failing
+set -e
 for part in smoke-editor smoke-backend smokr; do
     pushd ${part}
-    mkenv
-    set -e
-    [ -f .travis/test.sh ] && bash .travis/test.sh
-    set +e
-    unenv
+    [ -f .travis/test.sh ] && .travis/test.sh
     popd
 done
+set +e
+
 popd
