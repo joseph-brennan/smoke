@@ -6,7 +6,7 @@ PATH="$PATH:$HOME/.local/bin"
 source "$(which virtualenvwrapper.sh)"
 workon smoke-editor
 
-pip install -q -r --user requirements-dev.txt
+pip install -q --user -r requirements-dev.txt
 pip install -U -q --user -e .
 smoke_backend init
 echo \
