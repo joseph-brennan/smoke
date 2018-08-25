@@ -6,5 +6,5 @@ PATH="$PATH:$HOME/.local/bin"
 source "$(which virtualenvwrapper.sh)"
 workon smoke-editor
 
-pip install -r requirements_dev.txt
+pip install -r requirements-dev.txt
 pip install -e .
