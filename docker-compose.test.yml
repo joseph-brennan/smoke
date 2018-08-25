@@ -8,11 +8,7 @@ services:
       - .travis/test.sh
     volumes:
       - ./smoke-editor:/smoke
-    ports:
-      - "8080:8080"
     working_dir: /smoke
-    depends_on:
-       - backend
     tty: true
   backend:
     image: python:3.6
@@ -22,7 +18,15 @@ services:
       - .travis/test.sh
     volumes:
       - ./smoke-backend:/smoke
-    ports:
-      - "8000:8000"
+    working_dir: /smoke
+    tty: true
+  smokr:
+    image: python:3.6
+    entrypoint:
+      - bash
+      - -l
+      - .travis/test.sh
+    volumes:
+      - ./smokr:/smoke
     working_dir: /smoke
     tty: true
