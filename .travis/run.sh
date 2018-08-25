@@ -3,7 +3,7 @@
 
 export PATH="${PATH}:${HOME}/.local/bin"
 source smoke-env
-
+pushd $(dirname $0)/..
 for part in smoke-editor smoke-backend smokr; do
     pushd ${part}
     mkenv
@@ -13,3 +13,4 @@ for part in smoke-editor smoke-backend smokr; do
     unenv
     popd
 done
+popd

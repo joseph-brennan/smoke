@@ -28,7 +28,7 @@ def test_run_tests():
             if filename.split('.')[-1] in exts]
 
     for src in srcs:
-        if re.search(r'test-failure\.[^.]*$', src) is not None:
+        if re.search(r'testFailure\.[^.]*$', src) is not None:
             with raises(AssertionError):
                 smokr.run_tests([os.path.abspath(test_path)], [os.path.abspath(src)], fail_fast=True)
         else:

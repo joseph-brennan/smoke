@@ -29,12 +29,12 @@ exts = [
             'sh': 'sh {source}',
             'rb': 'ruby {source}',
             'clj': 'clojure {source}',
-            '=cc': '{dest}',
+            'cc': '{dest}',
             'c': '{dest}',
             'py': 'python {source}',
             'java': lambda source, dest:
-            'java -cp {0} {1}'.format(dest[:dest.rindex('/')],
-                                      dest[dest.rindex('/') + 1:]),
+                'java -cp {0} {1}'.format(dest[:dest.rindex('/')],
+                                          dest[dest.rindex('/') + 1:]),
         },
         'sh {source}'
     ],
