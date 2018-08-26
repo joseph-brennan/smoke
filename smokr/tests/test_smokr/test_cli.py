@@ -30,7 +30,7 @@ def test_command_line_interface():
                                                     'BasicTests.yml'),
                                  '-s', os.path.join(pardir,
                                                     'srcs',
-                                                    'test-failure.rb'),
+                                                    'testFailure.rb'),
                                  '--fail-fast'])
     assert fail_result.exit_code == 1
     success_result = runner.invoke(cli.main,

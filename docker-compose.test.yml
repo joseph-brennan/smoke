@@ -1,24 +1,32 @@
 version: '3'
 services:
   web:
-    image: lsmith202/smoke-base
+    image: node:latest
     entrypoint:
       - bash
       - -l
-      - /smoke/test.sh
+      - .travis/test.sh
     volumes:
       - ./smoke-editor:/smoke
-    ports:
-      - "8080:8080"
+    working_dir: /smoke
     tty: true
   backend:
-    image: lsmith202/smoke-base
+    image: python:3.6
     entrypoint:
       - bash
       - -l
-      - /smoke/test.sh
+      - test.sh
     volumes:
       - ./smoke-backend:/smoke
-    ports:
-      - "8000:8000"
+    working_dir: /smoke
+    tty: true
+  smokr:
+    image: python:3.6
+    entrypoint:
+      - bash
+      - -l
+      - test.sh
+    volumes:
+      - ./smokr:/smoke
+    working_dir: /smoke
     tty: true
