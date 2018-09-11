@@ -125,5 +125,3 @@ There is another type of branch that we are going to need to know about and that
   2. https://www.atlassian.com/git/tutorials/comparing-workflows/gitflow-workflow
         -  Great tutorial for Git-Flow from Atlassian
   3. https://danielkummer.github.io/git-flow-cheatsheet/
-
-#### Seen by: Ryan Flageolle, David Clark, Joey Brennan
