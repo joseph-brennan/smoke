@@ -43,7 +43,7 @@
   ```shell
     $ cd #/.../smoke
     $ git add <file-name> <file-name> <file-name>
-    $ git commit -m "commiting multiple files"
+    $ git commit -am "commiting all files watched by git that have been changed"
     $ git push
    ```
    - source: https://stackoverflow.com/a/23621748
