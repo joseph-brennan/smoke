@@ -1,22 +1,23 @@
 # Smoke Git Procedures
-***
-  This is a rundown of how contributors working on the Smoke project should handle their git repositories, if you need a more in-depth review of Git Basics as well as Git-Flow basics please refer to https://github.com/joseph-brennan/smoke/blob/feature/gitflow/GitProcedures.md.
+
+This is a rundown of how contributors working on the Smoke project should handle their git repositories, if you need a more in-depth review of Git Basics as well as Git-Flow basics please refer to https://github.com/joseph-brennan/smoke/blob/feature/gitflow/GitProcedures.md.
 
 ### Quick Concepts
 
-  - Branches - When you checkout a branch = switching to that branch as you "Working Directory"
-    - This simply means when I add, commit, push any files; I am doing it inside that branch or that working directory.
+  - Branches - checkout a branch = switching to that branch as your "Working Directory"
+    - This simply means when I add, commit, push any files; I am doing it inside that branch.
 
   - These instructions infer that you have already cloned a fork of the original Smoke repository.
 
   - If you are familiar with git commands and you would like to see a comparison of git commands and their git-flow counterparts: https://gist.github.com/JamesMGreene/cdd0ac49f90c987e45ac
+  
 ***
 ## Procedures without Git-flow
 
-  While we may not be utilizing the git-flow extension we should still follow the concepts of Git-Flow, this means that we need to have a **master** and **develop** branch inside of our forked-repository.
+  While we may not be utilizing the git-flow extension we should still follow the concepts of Git-Flow, this means that we need to have **master** and **develop** branches inside of our forked-repository.
 
   - The master branch holds finished (Stable) code.
-  - The develop branch should hold finished code that needs to be tested. ??? -> not sure if this is clear or not.
+  - The develop branch is a complete history of the project.
 
   If you are new to Git-Flow there is another type of branch that we are going to need to know about and that is the **Feature** branch.
 
