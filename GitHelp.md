@@ -10,7 +10,7 @@ This is a rundown of how contributors working on the Smoke project should handle
   - These instructions infer that you have already cloned a fork of the original Smoke repository.
 
   - If you are familiar with git commands and you would like to see a comparison of git commands and their git-flow counterparts: https://gist.github.com/JamesMGreene/cdd0ac49f90c987e45ac
-  
+
 ***
 ## Procedures without Git-flow
 
@@ -125,3 +125,5 @@ There is another type of branch that we are going to need to know about and that
   2. https://www.atlassian.com/git/tutorials/comparing-workflows/gitflow-workflow
         -  Great tutorial for Git-Flow from Atlassian
   3. https://danielkummer.github.io/git-flow-cheatsheet/
+
+#### Seen by: Ryan Flageolle, 
