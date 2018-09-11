@@ -126,4 +126,4 @@ There is another type of branch that we are going to need to know about and that
         -  Great tutorial for Git-Flow from Atlassian
   3. https://danielkummer.github.io/git-flow-cheatsheet/
 
-#### Seen by: Ryan Flageolle, 
+#### Seen by: Ryan Flageolle, David Clark,
