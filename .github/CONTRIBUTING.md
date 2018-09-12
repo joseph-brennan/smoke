@@ -37,7 +37,7 @@ This is a rundown of how contributors working on the Smoke project should handle
 ### Push a Feature Branch
 
   ``` shell
-    $ git push
+    $ git push --set-upstream origin feature/<feature-name>
   ```
   This pushes any commits to the repository under the branch feature/<feature-name>.
 
