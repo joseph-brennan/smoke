@@ -1,6 +1,6 @@
 # Smoke Git Procedures
 
-This is a rundown of how contributors working on the Smoke project should handle their git repositories, if you need a more in-depth review of Git Basics as well as Git-Flow basics please refer to https://github.com/joseph-brennan/smoke/blob/feature/gitflow/GitProcedures.md.
+This is a rundown of how contributors working on the Smoke project should handle their git repositories, if you need a more in-depth review of Git Basics as well as Git-Flow basics please refer to https://github.com/Rflageolle/GitFlowTest
 
 ### Quick Concepts
 
