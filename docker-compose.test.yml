@@ -1,7 +1,7 @@
 version: '3'
 services:
   web:
-    image: node:latest
+    build: . # used to be node:latest
     entrypoint:
       - bash
       - -l
@@ -11,7 +11,7 @@ services:
     working_dir: /smoke
     tty: true
   backend:
-    image: python:3.6
+    build: . # used to be python:3.6
     entrypoint:
       - bash
       - -l
@@ -21,7 +21,7 @@ services:
     working_dir: /smoke
     tty: true
   smokr:
-    image: python:3.6
+    build: . # used to be python:3.6
     entrypoint:
       - bash
       - -l
