@@ -127,5 +127,5 @@ There is another type of branch that we are going to need to know about and that
   3. https://danielkummer.github.io/git-flow-cheatsheet/
 
 #### Seen by:
-  
+  Ronald Aparicio
   Luther Chikumba.
