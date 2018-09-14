@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
-
+"""Setting up API routes
+"""
 from flask import Blueprint
 from flask_restful import Api
 

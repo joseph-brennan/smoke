@@ -14,7 +14,10 @@ from smoke_backend.extensions import pwd_context, jwt
 
 blueprint = Blueprint('auth', __name__, url_prefix='/auth')
 
-
+'''Login - if user name or password wasn't entered, then error
+if user name or password wasn't correct, the error
+returns success!
+'''
 @blueprint.route('/login', methods=['POST'])
 def login():
     """Authenticate user and return token
@@ -40,7 +43,9 @@ def login():
     }
     return jsonify(ret), 200
 
-
+'''Don't know what this does
+I assumme it is adding current user to something?
+'''
 @blueprint.route('/refresh', methods=['POST'])
 @jwt_refresh_token_required
 def refresh():
@@ -50,7 +55,8 @@ def refresh():
     }
     return jsonify(ret), 200
 
-
+'''Returns user information
+'''
 @jwt.user_loader_callback_loader
 def user_loader_callback(identity):
     return User.query.get(identity)
