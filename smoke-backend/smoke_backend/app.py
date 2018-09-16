@@ -1,5 +1,7 @@
 # -*- coding: utf-8 -*-
-
+""""This file creates an instance of Flask for the 'smoke_backend' package
+and configures the flask extensions declared in the '/extensions.py' file
+"""
 from flask import Flask
 
 from smoke_backend import auth, api
@@ -8,6 +10,7 @@ from smoke_backend.extensions import cors, db, jwt, migrate
 
 def create_app(config=None, testing=False, cli=False):
     """Application factory, used to create application
+    Creates a new instance of Flask and configures its extensions
     """
     app = Flask('smoke_backend')
     configure_app(app, testing)
@@ -33,6 +36,10 @@ def configure_app(app, testing=False):
 
 def configure_extensions(app, cli):
     """configure flask extensions
+    cors: enables cross origin resources on the Flask app
+    db: initializes the SQLAlchemy Database
+    jwt: initializes the JWTManager
+    If command line is being used, a migrations repository is created
     """
     cors.init_app(app)
     db.init_app(app)
