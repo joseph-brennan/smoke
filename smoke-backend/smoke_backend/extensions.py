@@ -12,10 +12,11 @@ from flask_marshmallow import Marshmallow
 from flask_migrate import Migrate
 from flask_cors import CORS
 
-"""Creating a class for cross origin resource sharing """
+
 class Cors():
-    """ Creating connection to Cors using kwargs extension  """
+    """Creating a class for cross origin resource sharing """
     def init_app(self, app, *args, **kwargs):
+    	"""takes an optional app object and, if supplied, will call init_app."""
         CORS(app, *args, **kwargs)
 
 
