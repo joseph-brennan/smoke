@@ -1,11 +1,17 @@
-This is very rough but it works for now...
+## To run tests with the command prompt from the smoke directory:
 
-## Prepare your local system by building the docker image locally:
+## 1. For all three subsets of tests (editor/backend/smokr)
 
-```docker-compose -f docker-compose.test.yml build```
+     	*$ docker-compose -f docker-compose.test.yml up
 
-After this is completed you cn run the test suite.
+## 2. From editor
 
-## To run all tests:
+    	*$ docker-compose -f docker-compose.test.yml up web
 
-```docker-compose -f docker-compose.test.yml up```
+## 3. From backend
+
+    	*$ docker-compose -f docker-compose.test.yml up backend
+
+## 4. From smokr
+
+    	*$ docker-compose -f docker-compose.test.yml up smokr
