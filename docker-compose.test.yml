@@ -1,14 +1,13 @@
-version: '3'
+version: "3"
 services:
   web:
-    image: node:latest
-    entrypoint:
-      - bash
-      - -l
-      - .travis/test.sh
+    build: ./smoke-editor
     volumes:
-      - ./smoke-editor:/smoke
-    working_dir: /smoke
+      - .:/smoke
+    working_dir: /smoke/smoke-editor
+    entrypoint:
+      - sh
+      - .travis/test.sh
     tty: true
   backend:
     image: python:3.6
