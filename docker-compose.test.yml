@@ -1,17 +1,16 @@
-version: '3'
+version: "3"
 services:
   web:
-    build: . # used to be node:latest
-    entrypoint:
-      - bash
-      - -l
-      - .travis/test.sh
+    build: ./smoke-editor
     volumes:
-      - ./smoke-editor:/smoke
-    working_dir: /smoke
+      - .:/smoke
+    working_dir: /smoke/smoke-editor
+    entrypoint:
+      - sh
+      - .travis/test.sh
     tty: true
   backend:
-    build: . # used to be python:3.6
+    image: python:3.6
     entrypoint:
       - bash
       - -l
@@ -21,7 +20,7 @@ services:
     working_dir: /smoke
     tty: true
   smokr:
-    build: . # used to be python:3.6
+    image: python:3.6
     entrypoint:
       - bash
       - -l
