@@ -1,5 +1,7 @@
 # -*- coding: utf-8 -*-
-
+"""Comunicates with database to create,
+update, or delete users
+"""
 from flask import request
 from flask_restful import Resource
 from flask_jwt_extended import jwt_required
@@ -10,29 +12,30 @@ from smoke_backend.commons.pagination import paginate
 
 
 class UserSchema(ma.ModelSchema):
-     '''Single object schema'''
-     '''the value you pass in needs a password so you verify access to the user'''
+     """Single object schema
+
+     the value you pass in needs a password so you verify access to the user
+     """
     password = ma.String(load_only=True, required=True)
 
     class Meta:
-     '''Then it stores the user and database session in the Meta class'''
+     """Then it stores the user and database session in the Meta class"""
         model = User
         sqla_session = db.session
 
 
 class UserResource(Resource):
-    """Single object resource
-    """
+    """Single object resource"""
     method_decorators = [jwt_required]
 
     def get(self, user_id):
-        '''show and return a user'''
+        """show and return a user"""
         schema = UserSchema()
         user = User.query.get_or_404(user_id)
         return {"user": schema.dump(user).data}
 
     def put(self, user_id):
-        '''update a user'''
+        """update a user"""
         schema = UserSchema(partial=True)
         user = User.query.get_or_404(user_id)
         user, errors = schema.load(request.json, instance=user)
@@ -42,7 +45,7 @@ class UserResource(Resource):
         return {"msg": "user updated", "user": schema.dump(user).data}
 
     def delete(self, user_id):
-        '''delete a user'''
+        """delete a user"""
         user = User.query.get_or_404(user_id)
         db.session.delete(user)
         db.session.commit()
@@ -51,26 +54,23 @@ class UserResource(Resource):
 
 
 class UserList(Resource):
-    """Creation and get_all
-    """
+    """Creation and get_all"""
     method_decorators = [jwt_required]
 
     def get(self):
-        '''give a list of all users'''
+        """give a list of all users"""
         schema = UserSchema(many=True)
         query = User.query
         return paginate(query, schema)
 
     def post(self):
-        '''create a new user'''
+        """create a new user if no errors"""
         schema = UserSchema()
         user, errors = schema.load(request.json)
         if errors:
             return errors, 422
 
         db.session.add(user)
-        '''add the user object to be created '''
         db.session.commit()
-        ''' create the user object'''
 
         return {"msg": "user created", "user": schema.dump(user).data}, 201
