@@ -11,7 +11,8 @@ class Student(User):
     email = db.Column(db.String(80), unique=True, nullable=False)
     password = db.Column(db.String(255), nullable=False)
     active = db.Column(db.Boolean, default=True) 
-    permissions = db.Column(db.String, default='student')
+    permissions = db.Column(db.String(8), default='student')
+    teacher = db.relationship('Teacher', backref='student', uselist=False, lazy=True)
     
     def __init__(self, **kwargs):
         super(Student, self).__init__(**kwargs)
