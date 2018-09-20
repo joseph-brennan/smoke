@@ -10,8 +10,9 @@ class Student(User):
     username = db.Column(db.String(80), unique=True, nullable=False)
     email = db.Column(db.String(80), unique=True, nullable=False)
     password = db.Column(db.String(255), nullable=False)
-    active = db.Column(db.Boolean, default=True)
-
+    active = db.Column(db.Boolean, default=True) 
+    #permissions = 'student'
+    
     def __init__(self, **kwargs):
-        super(User, self).__init__(**kwargs)
+        super(User, self).__init__(**kwargs) # super(Student, self).__init__(**kwargs)
         self.password = pwd_context.hash(self.password)
