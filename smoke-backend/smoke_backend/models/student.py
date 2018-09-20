@@ -3,7 +3,7 @@
 from smoke_backend.extensions import db, pwd_context
 
 
-class Student(db.Model):
+class Student(User):
     """Student class with basic permissions
     """
     id = db.Column(db.Integer, primary_key=True)
