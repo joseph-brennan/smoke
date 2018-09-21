@@ -1,14 +1,12 @@
 # -*- coding: utf-8 -*-
-""" Top level management of the application
-   
-This module controls/manages the functioning of the smoke backend application.
-It is responsible for
+    """Top level management of the application
 
-    * Creating the default user
-    * Signing the user in
-    * Managing the user database
+    This module controls/manages the functioning of the smoke backend application.
+    It is responsible for
 
-"""
+        * Creating the default user
+        * Signing the user in
+        * Managing the user database"""
 
 import click 
 from flask.cli import FlaskGroup
@@ -19,10 +17,10 @@ def create_smoke(info):
     """Get application from application factory method
 
     Args:
-       info (str): An info string which is never used
+        info (str): An info string which is never used
 
     Returns:
-       Flask: The Flask [#f1]_ controller object for the backend
+        Flask: The Flask [#f1]_ controller object for the backend
     
     .. [#f1] http://flask.pocoo.org/
 
