@@ -1,7 +1,14 @@
 # -*- coding: utf-8 -*-
-""" This file manages the database of users, the creation of users,
-and the initialization of both for the backend of smokr. """
+""" Top level management of the application
+   
+This module controls/manages the functioning of the smoke backend application.
+It is responsible for
 
+    * Creating the default user
+    * Signing the user in
+    * Managing the user database
+
+"""
 
 import click 
 from flask.cli import FlaskGroup
@@ -9,19 +16,34 @@ from smoke_backend.app import create_app
 
 
 def create_smoke(info):
-    """ Get application from application factory method """
+    """Get application from application factory method
+
+    Args:
+       info (str): An info string which is never used
+
+    Returns:
+       Flask: The Flask [#f1]_ controller object for the backend
+    
+    .. [#f1] http://flask.pocoo.org/
+
+    """
     return create_app(cli=True)
 
 
 @click.group(cls=FlaskGroup, create_app=create_smoke)
 def cli():
-    """Main entry point"""
+    """Main entry point
+
+    Forms the entry point for when this method is called as 
+    a stand-alone application. 
+    """
 
 
 @cli.command("init")
 def init():
-    """Init application, create database tables
-    and create a new user named admin with password admin
+    """Initialize application
+
+    Creates the default user & creates the database users
     """
 
     from smoke_backend.extensions import db
