@@ -67,5 +67,4 @@ def init():
     click.echo("created user admin")
 
 if __name__ == "__main__":
-    """ If this method is called as the main method, start client mode """
     cli()

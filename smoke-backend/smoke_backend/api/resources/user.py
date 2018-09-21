@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-"""Comunicates with database to create,
+"""Communicates with database to create,
 update, or delete users
 """
 from flask import request
