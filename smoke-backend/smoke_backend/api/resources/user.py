@@ -12,14 +12,14 @@ from smoke_backend.commons.pagination import paginate
 
 
 class UserSchema(ma.ModelSchema):
-     """Single object schema
+    """Single object schema
 
-     the value you pass in needs a password so you verify access to the user
-     """
+    the value you pass in needs a password so you verify access to the user
+    """
     password = ma.String(load_only=True, required=True)
 
     class Meta:
-     """Then it stores the user and database session in the Meta class"""
+        """Then it stores the user and database session in the Meta class"""
         model = User
         sqla_session = db.session
 

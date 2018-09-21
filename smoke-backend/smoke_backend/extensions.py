@@ -15,8 +15,9 @@ from flask_cors import CORS
 
 class Cors():
     """Creating a class for cross origin resource sharing """
+
     def init_app(self, app, *args, **kwargs):
-    	"""takes an optional app object and, if supplied, will call init_app."""
+        """takes an optional app object and, if supplied, will call init_app."""
         CORS(app, *args, **kwargs)
 
 
