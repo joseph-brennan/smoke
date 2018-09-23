@@ -9,6 +9,7 @@ Welcome to Smoke-Backend's documentation!
    installation
    modules
    contributing
+   architecture
    authors
    history
 

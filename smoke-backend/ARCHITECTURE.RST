@@ -59,15 +59,19 @@ If you wish to learn more about the technologies used to make **smoke**
 possible, visit these links:
 
 * Flask_
+
 .. _Flask: http://flask.pocoo.org/
 
 * SQLAlchemy_
+
 .. _SQLAlchemy: https://www.sqlalchemy.org/library.html>
 
 * Sphinx-doc_
+
 .. _Sphinx-doc: http://www.sphinx-doc.org/en/master/>
 
 * PEP257_
+
 .. _PEP257: http://www.sphinx-doc.org/en/master/>
 
 
