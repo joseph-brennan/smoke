@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
-""""This file creates an instance of Flask for the 'smoke_backend' package
-and configures the flask extensions declared in the '/extensions.py' file
+""""This file creates an instance of Flask for the 'smoke_backend' package and configures flask extensions
+
 """
 from flask import Flask
 
@@ -10,7 +10,16 @@ from smoke_backend.extensions import cors, db, jwt, migrate
 
 def create_app(config=None, testing=False, cli=False):
     """Application factory, used to create application
-    Creates a new instance of Flask and configures its extensions
+    Creates and returns new instance of Flask and configures its extensions
+
+    Args:
+        config: not used
+        testing(bool): allows testing override for configure_app; default is false
+        cli(bool): allows command line interface override for repository migration; default is false
+
+    Returns:
+        app(Flask): New Flask object with initialized extensions
+
     """
     app = Flask('smoke_backend')
     configure_app(app, testing)
@@ -21,7 +30,12 @@ def create_app(config=None, testing=False, cli=False):
 
 
 def configure_app(app, testing=False):
-    """set configuration for application
+    """Set configuration for application
+
+    Args:
+        app(Flask): passes the newly created Flask instance for configuration
+        testing(bool): if true, configuration is done through the configtest module
+
     """
     # default configuration
     app.config.from_object('smoke_backend.config')
@@ -35,7 +49,12 @@ def configure_app(app, testing=False):
 
 
 def configure_extensions(app, cli):
-    """configure flask extensions
+    """Configure flask extensions
+
+    Args:
+        app(Flask): used for configuring the extensions of the created Flask instance
+        cli(bool): if command line interface is used, repository is migrated; default is false
+
     cors: enables cross origin resources on the Flask app
     db: initializes the SQLAlchemy Database
     jwt: initializes the JWTManager
@@ -50,7 +69,11 @@ def configure_extensions(app, cli):
 
 
 def register_blueprints(app):
-    """register all blueprints for application
+    """Register all blueprints for application
+
+    Args:
+        app(Flask): passes the newly created Flask instance for configuration
+
     """
     app.register_blueprint(auth.views.blueprint)
     app.register_blueprint(api.views.blueprint)
