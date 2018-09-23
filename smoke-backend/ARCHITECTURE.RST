@@ -72,7 +72,7 @@ possible, visit these links:
 
 * PEP257_
 
-.. _PEP257: http://www.sphinx-doc.org/en/master/
+.. _PEP257: https://www.python.org/dev/peps/pep-0257/
 
 
 
