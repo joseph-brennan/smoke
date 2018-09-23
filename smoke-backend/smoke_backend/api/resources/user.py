@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
-"""Communicates with database to create,
-update, or delete users
+"""Communicates with database to create, update, or delete users
+
+
 """
 from flask import request
 from flask_restful import Resource
@@ -14,12 +15,24 @@ from smoke_backend.commons.pagination import paginate
 class UserSchema(ma.ModelSchema):
     """Single object schema
 
-    the value you pass in needs a password so you verify access to the user
+    Class attempts to verify a password passed to it by a user
+
+    Attributes:
+        password (String): The user entered password
     """
     password = ma.String(load_only=True, required=True)
 
     class Meta:
-        """Then it stores the user and database session in the Meta class"""
+        """Metadata of the login session
+
+        Attributes:
+            model (User): The user schema
+
+            sqla_session (Session): The SQLAlchemy session object [#f1]_
+
+        .. [f#1] http://docs.sqlalchemy.org/en/latest/orm/session_api.html#sqlalchemy.orm.session.Session
+
+        """
         model = User
         sqla_session = db.session
 
