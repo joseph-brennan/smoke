@@ -48,9 +48,9 @@ Resources
 If you wish to learn more about the technologies used to make **smoke**
 possible, visit these links:
 
-* Flask - '<http://flask.pocoo.org/>'_.
-* SQLAlchemy - '<https://www.sqlalchemy.org/library.html>'_.
+'* Flask <http://flask.pocoo.org/>'_.
+'* SQLAlchemy <https://www.sqlalchemy.org/library.html>'_.
 * Documentation:
 
-  * Sphinx-doc - '<http://www.sphinx-doc.org/en/master/>'_.
-  * PEP 257 - '<http://www.sphinx-doc.org/en/master/>'_.
+  * 'Sphinx-doc - <http://www.sphinx-doc.org/en/master/>'_.
+  * 'PEP 257 <http://www.sphinx-doc.org/en/master/>'_.
