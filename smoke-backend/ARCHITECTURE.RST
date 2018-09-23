@@ -41,6 +41,10 @@ View
 front-end - **add info**
 
 
+Clic()
+----
+
+
 
 
 Resources
