@@ -64,15 +64,15 @@ possible, visit these links:
 
 * SQLAlchemy_
 
-.. _SQLAlchemy: https://www.sqlalchemy.org/library.html>
+.. _SQLAlchemy: https://www.sqlalchemy.org/library.html
 
 * Sphinx-doc_
 
-.. _Sphinx-doc: http://www.sphinx-doc.org/en/master/>
+.. _Sphinx-doc: http://www.sphinx-doc.org/en/master/
 
 * PEP257_
 
-.. _PEP257: http://www.sphinx-doc.org/en/master/>
+.. _PEP257: http://www.sphinx-doc.org/en/master/
 
 
 
