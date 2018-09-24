@@ -51,7 +51,7 @@ class UserResource(Resource):
     """Single object resource.
 
     Attributes:
-        method_decorators: Array of decorator objects to require a valid JWT token to be present. [#f3]_
+        method_decorators: Singleton array of decorator objects to require a valid JWT token to be present. [#f3]_
 
     Args:
         Resources: A Flask-RESTful Resource [#f4]_ object to direct the control of this class.
