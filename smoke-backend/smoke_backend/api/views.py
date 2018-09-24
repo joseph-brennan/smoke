@@ -6,8 +6,7 @@ Uses a Flask blueprint [#f1]_ to control the function of the various libraries u
 Attributes:
     blueprint (Flask Blueprint): The blueprint [#f1]_ for the smoke api
 
-    api (Flask-RESTful): An extension for Flask to build RESTful APIs through ORM libraries
-        [#f2]_
+    api (Flask-RESTful): An extension for Flask to build RESTful APIs through ORM libraries [#f2]_
 
 .. [#f1] http://flask.pocoo.org/docs/1.0/blueprints/
 .. [#f2] https://flask-restful.readthedocs.io/en/latest/
