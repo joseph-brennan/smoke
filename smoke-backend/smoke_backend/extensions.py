@@ -27,12 +27,12 @@ class Cors():
 
     def init_app(self, app, *args, **kwargs):
         """ defines arguments to leverage flasks CORS method 
-        
+
         Args: 
         	app: app obeject, the resources and options may be specified in the App Config
         	*args: Variable length argument list.
         	**kwargs: Arbitrary keyword arguments.
-        	"""
+        """
 
         CORS(app, *args, **kwargs)
 
