@@ -23,7 +23,7 @@ class UserSchema(ma.ModelSchema):
     Extends the Marshmallow ModelSchema class. [#f1]_
 
     Attributes:
-        password (String): The user entered password. Serialization, Persistence, & Verification by Marshmallow. [#f1]_
+        password (String): The user entered password. [#f1]_
     """
     password = ma.String(load_only=True, required=True)
 
@@ -34,9 +34,9 @@ class UserSchema(ma.ModelSchema):
 
 
 class UserResource(Resource):
-    """Single object resource.
+    """Single object resource for Flask control of the user database.
 
-    Extends a Flask-RESTful Resource [#f4]_ object to direct the control of this class.
+    Extends a Flask-RESTful Resource [#f4]_ object.
 
     Attributes:
         method_decorators: Singleton array of decorator objects to require a valid JWT token to be present. [#f3]_
