@@ -1,6 +1,8 @@
 # -*- coding: utf-8 -*-
 """"This file creates an instance of Flask for the 'smoke_backend' package and configures flask extensions
 
+.. [#f1] http://flask.pocoo.org/docs/1.0/patterns/appfactories/
+.. [#f2] http://flask.pocoo.org/docs/1.0/config/
 """
 from flask import Flask
 
@@ -9,17 +11,19 @@ from smoke_backend.extensions import cors, db, jwt, migrate
 
 
 def create_app(config=None, testing=False, cli=False):
-    """Application factory, used to create application
-    Creates and returns new instance of Flask and configures its extensions
+    """Flask application factory. [#f1]_
 
-    Args:
-        config: not used
-        testing(bool): allows testing override for configure_app; default is false
-        cli(bool): allows command line interface override for repository migration; default is false
+    Creates and returns new instance of Flask and configures its extensions.
+
+    Parameters:
+        config: not currently used.
+
+        testing (bool): allows testing override for configure_app; default is `False`.
+
+        cli (bool): allows command line interface override for repository migration; default is `False`.
 
     Returns:
-        app(Flask): New Flask object with initialized extensions
-
+        Flask: New Flask object with initialized extensions.
     """
     app = Flask('smoke_backend')
     configure_app(app, testing)
@@ -30,11 +34,15 @@ def create_app(config=None, testing=False, cli=False):
 
 
 def configure_app(app, testing=False):
-    """Set configuration for application
+    """Set configuration for application.
 
-    Args:
-        app(Flask): passes the newly created Flask instance for configuration
-        testing(bool): if true, configuration is done through the configtest module
+    Configures Flask application through the built in Flask methods. [#f2]_
+
+    Parameters:
+        app (Flask): the newly created Flask instance for configuration.
+
+        testing (bool): if true, configuration is done through the configtest module. Else, configuration is done
+            through the SMOKE_CONFIG environment variable.
 
     """
     # default configuration
@@ -49,16 +57,14 @@ def configure_app(app, testing=False):
 
 
 def configure_extensions(app, cli):
-    """Configure flask extensions
+    """Configure flask extensions.
 
-    Args:
-        app(Flask): used for configuring the extensions of the created Flask instance
-        cli(bool): if command line interface is used, repository is migrated; default is false
+    Configures SQLAlchemy,
 
-    cors: enables cross origin resources on the Flask app
-    db: initializes the SQLAlchemy Database
-    jwt: initializes the JWTManager
-    If command line is being used, a migrations repository is created
+    Parameters:
+        app (Flask): used for configuring the extensions of the created Flask instance
+
+        cli (bool): if command line interface is used, repository is migrated; default is false
     """
     cors.init_app(app)
     db.init_app(app)

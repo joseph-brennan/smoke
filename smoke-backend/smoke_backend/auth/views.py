@@ -84,7 +84,7 @@ def user_loader_callback(identity):
     """Returns user information
 
     Parameters:
-        identity:
+        identity: The unique identifier for the user
 
     Returns:
 
