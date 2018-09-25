@@ -15,6 +15,7 @@ References
 .. [fsqla] http://flask-sqlalchemy.pocoo.org/2.3/
 .. [fsqulaquries] http://flask-sqlalchemy.pocoo.org/2.3/queries/#querying-records
 .. [fsqulaschema] http://docs.sqlalchemy.org/en/latest/core/schema.html
+.. [fsqulamodels] http://flask-sqlalchemy.pocoo.org/2.3/models/
 .. [page] http://flask-sqlalchemy.pocoo.org/2.3/api/#flask_sqlalchemy.Pagination
 .. [jwt] https://en.wikipedia.org/wiki/JSON_Web_Token
 .. [fjwt] https://flask-jwt-extended.readthedocs.io/en/latest/
