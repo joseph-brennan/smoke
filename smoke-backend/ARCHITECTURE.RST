@@ -40,20 +40,20 @@ and community made extensions.
 
     * Has built-in support with "useful defaults and extra helpers" to quicken and simplify database management
 
-- Migrate_
-    .. _Migrate: https://flask-migrate.readthedocs.io/en/latest/
+- Flask-Migrate_
+    .. _Flask-Migrate: https://flask-migrate.readthedocs.io/en/latest/
 
     Flask-Migrate allows a migration repository for the database (SQLAlchemy), or multiple databases, through the
     use of the Flask and Flask-Script command-line interface
 
-- Marshmallow_
-    .. _Marshmallow: https://flask-marshmallow.readthedocs.io/en/latest/
+- Flask-Marshmallow_
+    .. _Flask-Marshmallow: https://flask-marshmallow.readthedocs.io/en/latest/
 
     Flask-marshmallow allows integration between the Flask app and marshmallow,
     a library used for converting complex datatypes into Python datatypes and vice versa
 
-- CORS_
-    .. _CORS: https://flask-cors.readthedocs.io/en/latest/
+- Flask-CORS_
+    .. _Flask-CORS: https://flask-cors.readthedocs.io/en/latest/
 
     Cross Origin Resource Sharing that allows Cross Origin AJAX_ (Asynchronous JavaScript
     and XML)
@@ -62,8 +62,8 @@ and community made extensions.
 
     * Allows web apps to send and retrieve data without changing the user's view of the page
 
-- JWT_
-    .. _JWT: https://flask-jwt-extended.readthedocs.io/en/latest/
+- Flask-JWT_
+    .. _Flask-JWT: https://flask-jwt-extended.readthedocs.io/en/latest/
 
     JSON Web Tokens authenticate the user and are managed through the Flask-JWT-Extended
     library
