@@ -35,12 +35,14 @@ import smoke_backend
 # extensions coming with Sphinx (named 'sphinx.ext.*') or your custom ones.
 extensions = ['sphinx.ext.autodoc', 'sphinx.ext.viewcode', 'sphinxcontrib.napoleon']
 
-# Napolean extension settings
-napoleon_include_init_with_doc = True
-napoleon_include_special_with_doc = False
-
 # Autodoc extension settings
-autoclass_content = True
+autoclass_content = 'both'
+
+# Autodoc default settings
+autodoc_default_options = {
+    'special-members': '__init__',
+    'no-undoc-members': None    ,
+}
 
 # Add any paths that contain templates here, relative to this directory.
 templates_path = ['_templates']

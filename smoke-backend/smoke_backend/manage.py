@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-"""Top level management of the application
+"""Top level management of the application through flask [flask]_
 
 This module controls/manages the functioning of the smoke backend application.
 It is responsible for
@@ -42,13 +42,6 @@ def init():
     """Initialize application
 
     Initializes the SQLAlchemy [flasksqla]_ database and adds a default user.
-
-    Default User:
-
-        :username: admin
-        :email: admin@mail.com
-        :password: admin
-        :active: true
     """
 
     from smoke_backend.extensions import db

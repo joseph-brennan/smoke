@@ -2,15 +2,18 @@
 References
 ==========
 
-.. [flask] http://flask.pocoo.org/
+.. [f] http://flask.pocoo.org/
+.. [fblueprint] http://flask.pocoo.org/docs/1.0/blueprints/#blueprints
+.. [frestful] https://flask-restful.readthedocs.io/en/latest/
+.. [frestfulresource] https://flask-restful.readthedocs.io/en/0.3.5/quickstart.html#resourceful-routing
 .. [pas] https://passlib.readthedocs.io/en/stable/
-.. [cos] https://en.wikipedia.org/wiki/Cross-origin_resource_sharing
-.. [flaskcors] https://flask-cors.readthedocs.io/en/latest/
+.. [cors] https://en.wikipedia.org/wiki/Cross-origin_resource_sharing
+.. [fcors] https://flask-cors.readthedocs.io/en/latest/
 .. [ajax] https://en.wikipedia.org/wiki/Ajax_(programming)
-.. [flasksqla] http://flask-sqlalchemy.pocoo.org/2.3/
+.. [fsqla] http://flask-sqlalchemy.pocoo.org/2.3/
 .. [jwt] https://en.wikipedia.org/wiki/JSON_Web_Token
-.. [flaskjwt] https://flask-jwt-extended.readthedocs.io/en/latest/
+.. [fjwtext] https://flask-jwt-extended.readthedocs.io/en/latest/
 .. [mar] https://marshmallow.readthedocs.io/en/3.0/
-.. [flaskmar] https://flask-marshmallow.readthedocs.io/en/latest/
+.. [fmar] https://flask-marshmallow.readthedocs.io/en/latest/
 .. [mig] https://en.wikipedia.org/wiki/Schema_migration
-.. [flaskmig] https://flask-migrate.readthedocs.io/en/latest/
+.. [fmig] https://flask-migrate.readthedocs.io/en/latest/

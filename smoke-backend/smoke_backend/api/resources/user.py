@@ -18,12 +18,13 @@ from smoke_backend.commons.pagination import paginate
 
 
 class UserSchema(ma.ModelSchema):
-    """Models a current user logged in to the backend through a single object Marshmallow Model. [#f1]_
+    """Single object SQL Model Schema defined through Marshmallow. [fmar]_
 
-    Extends the Marshmallow ModelSchema class. [#f1]_
+    Extends the Marshmallow ModelSchema class to define the ORM for a user.
+    [mar]_ [fmar]_ [fsqla]_
 
     Attributes:
-        password (String): The user entered password. [#f1]_
+        password (String): The user entered password field.
     """
     password = ma.String(load_only=True, required=True)
 
@@ -36,7 +37,7 @@ class UserSchema(ma.ModelSchema):
 class UserResource(Resource):
     """Single object resource for Flask control of the user database.
 
-    Extends a Flask-RESTful Resource [#f4]_ object.
+    Extends a Flask-RESTful Resource [frestfulresource]_ object.
 
     Attributes:
         method_decorators: Singleton array of decorator objects to require a valid JWT token to be present. [#f3]_
