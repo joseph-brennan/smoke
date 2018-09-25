@@ -2,12 +2,7 @@
 """Creates view for user login authentication.
 
 Attributes:
-    blueprint (Flask Blueprint): The blueprint scheme for smoke. [#f1]_ [#f2]_
-
-.. [#f1] https://flask-restful.readthedocs.io/en/latest/
-.. [#f2] http://flask.pocoo.org/docs/1.0/blueprints/#blueprints
-.. [#f3] http://flask.pocoo.org/docs/1.0/api/#flask.json.jsonify
-.. [#f4] https://flask-jwt-extended.readthedocs.io/en/latest/token_freshness.html
+    blueprint (Flask Blueprint): The blueprint scheme for smoke. [fblueprint]_
 """
 
 from flask import request, jsonify, Blueprint
@@ -29,13 +24,15 @@ blueprint = Blueprint('auth', __name__, url_prefix='/auth')
 def login():
     """Authenticate user and return token.
 
-    Uses flask's jsonify [#f3]_ function to convert requests to valid JSON objects.
+    Uses flask's jsonify function to convert requests to valid JSON objects.
+    [fjsonify]_
 
     Return:
-        flask.Response: If valid request & credentials, returns the valid access tokens for the backend.
+        flask.Response: If valid request & credentials present, returns the
+            valid access tokens for the backend in JSON format.
 
-            If the user password or username is missing or invalid then method returns a JSON message noting how the
-            method failed.
+            If the user password or username is missing or invalid, then method
+            returns a JSON formatted message noting how the method failed.
 
     .. _Flask Local Proxy Request through werkzeug local:
         http://werkzeug.pocoo.org/docs/0.14/wrappers/
@@ -67,10 +64,11 @@ def login():
 def refresh():
     """Receives access token and refreshes the page.
 
-    Requires a valid jwt token [#f4]_ for access to method.
+    Requires a valid jwt token for access to method. [fjwtfresh]_
 
     Returns:
-        Flask Response: A JSONified object containing the updated contents of the login page.
+        flask.response: A JSONified object containing the updated contents of
+            the login page. [fjsonify]_
     """
     current_user = get_jwt_identity()
     ret = {
@@ -81,12 +79,12 @@ def refresh():
 
 @jwt.user_loader_callback_loader
 def user_loader_callback(identity):
-    """Returns user information
+    """Returns user information.
 
     Parameters:
-        identity: The unique identifier for the user
+        identity: The unique identifier for the user.
 
     Returns:
-
+        flask.response: The user data as a JSON dictionary.
     """
     return User.query.get(identity)

@@ -2,7 +2,7 @@
 """Setting up API routes
 
 Uses a Flask blueprint to control the function of the various libraries used
-by smoke. [f]_
+by smoke. [f]_ [fblueprint]_
 
 Attributes:
     blueprint (Flask Blueprint): The blueprint for the smoke api.
