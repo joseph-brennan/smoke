@@ -33,8 +33,7 @@ micro-framework designed to do only what it needs to do, and do it well.
 Flask provides many tools to keep the backend clean and concise through both built in extensions
 and community made extensions.
 
-- Flask-SQLAlchemy_
-    .. _Flask-SQLAlchemy: http://flask-sqlalchemy.pocoo.org/2.3/
+- Flask-SQLAlchemy_ [fsqla]_
 
     Flask provides direct access to the database (SQLAlchemy)
 
