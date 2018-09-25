@@ -3,9 +3,9 @@
 """Simple helper to paginate query
 
 Attributes:
-    DEFAULT_PAGE_SIZE (int): The default amount of objects to put on a single page
+    DEFAULT_PAGE_SIZE (int): The default amount of objects to put on a single page (50).
 
-    DEFAULT_PAGE_NUMBER (int): The default beginning of the page sequence.
+    DEFAULT_PAGE_NUMBER (int): The default beginning of the page sequence (1).
 
 .. _Flask Pagination:
     http://flask.pocoo.org/snippets/44/
