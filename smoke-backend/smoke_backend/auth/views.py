@@ -1,5 +1,12 @@
 # -*- coding: utf-8 -*-
-"""Creates view for user login authentication"""
+"""Creates view for user login authentication.
+
+Attributes:
+    blueprint (Flask Blueprint): The blueprint scheme for smoke. [#f1]_ [#f2]_
+
+.. [#f1] https://flask-restful.readthedocs.io/en/latest/
+.. [#f2] http://flask.pocoo.org/docs/1.0/blueprints/#blueprints
+"""
 
 from flask import request, jsonify, Blueprint
 from flask_jwt_extended import (
@@ -18,10 +25,15 @@ blueprint = Blueprint('auth', __name__, url_prefix='/auth')
 
 @blueprint.route('/login', methods=['POST'])
 def login():
-    """Authenticate user and return token
+    """Authenticate user and return token.
 
-    Login - if user name or password wasn't entered, then error
-    if user name or password wasn't correct, then error
+    Uses JSON for serialization and communication with the user server.
+
+    Return:
+        flask.Response: If valid request & credentials, returns the valid access tokens for the backend.
+
+            If the user password or username is missing or invalid then method returns a JSON message noting how the
+            method failed
     """
     if not request.is_json:
         return jsonify({"msg": "Missing JSON in request"}), 400
