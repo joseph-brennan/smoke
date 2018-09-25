@@ -14,10 +14,26 @@ from flask_cors import CORS
 
 
 class Cors():
-    """Creating a class for cross origin resource sharing """
+    """Creating a class for cross origin resource sharing for the application
+
+    at the simplest use of the CORS extension is to allow CORS for all domains on all routes.
+    The settings for CORS are determined in the following order
+
+    1. Resource level settings (e.g when passed as a dictionary)
+    2. Keyword argument settings
+    3. App level configuration settings (e.g. CORS_*)
+    4. Default settings
+    """
 
     def init_app(self, app, *args, **kwargs):
-        """takes an optional app object and, if supplied, will call init_app."""
+        """ defines arguments to leverage flasks CORS method 
+
+        Args: 
+        	app: app obeject, the resources and options may be specified in the App Config
+        	*args: Variable length argument list.
+        	**kwargs: Arbitrary keyword arguments.
+        """
+
         CORS(app, *args, **kwargs)
 
 
