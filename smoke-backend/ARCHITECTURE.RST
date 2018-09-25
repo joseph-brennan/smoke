@@ -62,8 +62,8 @@ and community made extensions.
 
     * Allows web apps to send and retrieve data without changing the user's view of the page
 
-- JWT_
-    .. _JWT: https://flask-jwt-extended.readthedocs.io/en/latest/
+- Flask-JWT_
+    .. _Flask-JWT: https://flask-jwt-extended.readthedocs.io/en/latest/
 
     JSON Web Tokens authenticate the user and are managed through the Flask-JWT-Extended
     library
