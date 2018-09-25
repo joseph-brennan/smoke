@@ -27,7 +27,46 @@ MVC -- **add info**
 Controller - Flask
 ------------------
 
-backend -- **add info**
+Flask is used as the controller for the MVC architecture, bridging the gap
+between what the user sees and what is happening behind the scenes.  It is a
+micro-framework designed to do only what it needs to do, and do it well.
+Flask provides many tools to keep the backend clean and concise through both built in extensions
+and community made extensions.
+
+- Flask-SQLAlchemy_
+    .. _Flask-SQLAlchemy: http://flask-sqlalchemy.pocoo.org/2.3/
+
+    Flask provides direct access to the database (SQLAlchemy)
+
+    * Has built-in support with "useful defaults and extra helpers" to quicken and simplify database management
+
+- Migrate_
+    .. _Migrate: https://flask-migrate.readthedocs.io/en/latest/
+
+    Flask-Migrate allows a migration repository for the database (SQLAlchemy), or multiple databases, through the
+    use of the Flask and Flask-Script command-line interface
+
+- Marshmallow_
+    .. _Marshmallow: https://flask-marshmallow.readthedocs.io/en/latest/
+
+    Flask-marshmallow allows integration between the Flask app and marshmallow,
+    a library used for converting complex datatypes into Python datatypes and vice versa
+
+- CORS_
+    .. _CORS: https://flask-cors.readthedocs.io/en/latest/
+
+    Cross Origin Resource Sharing that allows Cross Origin AJAX_ (Asynchronous JavaScript
+    and XML)
+
+    .. _AJAX: http://http://www.ajax-cross-origin.com/how.html
+
+    * Allows web apps to send and retrieve data without changing the user's view of the page
+
+- JWT_
+    .. _JWT: https://flask-jwt-extended.readthedocs.io/en/latest/
+
+    JSON Web Tokens authenticate the user and are managed through the Flask-JWT-Extended
+    library
 
 
 
