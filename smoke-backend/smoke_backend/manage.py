@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-"""Top level management of the application through flask [flask]_
+"""Top level management of the application through flask [f]_
 
 This module controls/manages the functioning of the smoke backend application.
 It is responsible for
@@ -22,7 +22,7 @@ def create_smoke(info):
         info (str): Currently not used.
 
     Returns:
-        Flask: The Flask [flask]_ controller object for the backend
+        Flask: The Flask [f]_ controller object for the backend
 
     """
     return create_app(cli=True)

@@ -20,15 +20,15 @@ def paginate(query, schema):
     """A simple helper to paginate a query. [page]_
 
     Breaks apart a query returned by SQLAlchemy as defined through smoke's
-    SQLAlchemy schema. [fsqulaquries]_ [fsqulaschema]_ The function returns the
+    SQLAlchemy schema. [fsqlaquries]_ [fsqlaschema]_ The function returns the
     total number of pages, the current page a user is on, the next page object,
     the previous page object, and the results of the current page.
 
     Parameters:
-        query (SQLAlchemy Query): The query to paginate. [fsqulaquries]_
+        query (SQLAlchemy Query): The query to paginate. [fsqlaquries]_
 
         schema (Flask-SQLAlchemy Schema): The ORM schema which defines the
-            objects in the database. [fsqulaschema]_
+            objects in the database. [fsqlaschema]_
 
     Returns:
         JSON: Paginated view of the query passed in.

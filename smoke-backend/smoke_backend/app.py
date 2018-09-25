@@ -1,8 +1,5 @@
 # -*- coding: utf-8 -*-
 """"Creates an instance of Flask and configures its' extensions. [fextensions]_
-
-.. [#f1] http://flask.pocoo.org/docs/1.0/patterns/appfactories/
-.. [#f2] http://flask.pocoo.org/docs/1.0/config/
 """
 from flask import Flask
 

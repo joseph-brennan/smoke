@@ -7,28 +7,28 @@ factory.
 
 Attributes:
     cors (flask_cors): The CORS strategy for allowing access to restricted
-        objects. [cos]_  Safe for cross-origin AJAX. [ajax]_
+        objects. [cors]_  Safe for cross-origin AJAX. [ajax]_
 
-        Provided by Flask-CORS [flcors]_
+        Provided by Flask-CORS [fcors]_
 
     db (flask_sqlalchemy): The SQL database handler.
-        Provided by Flask-SQLAlchemy. [flasksqla]_
+        Provided by Flask-SQLAlchemy. [fsqla]_
 
     jwt (flask_jwt_extended): The JWT handler to process JSON web tokens.
         [jwt]_
 
-        Provided by Flask-JWT-Extended. [flaskjwt]_
+        Provided by Flask-JWT-Extended. [fjwt]_
 
     ma (flask_marshmallow): Serialization handler. Integrates with SQLAlchemy
         for data persistence.
 
-        Provided by Flask-Marshmallow. [flaskmar]_ [mar]_
+        Provided by Flask-Marshmallow. [fmar]_ [mar]_
 
     migrate (flask_migrate): Schema migration handler. Allows for incremental
         changes to the current SQLAlchemy schema without breaking current
         objects. [mig]_
 
-        Provided by Flask-Migrate. [flaskmig]_
+        Provided by Flask-Migrate. [fmig]_
 
     pwd_context (PassLib context): Cryptographic password handler.
         Provided by PassLib. [pas]_
@@ -42,7 +42,7 @@ from flask_cors import CORS
 
 
 class Cors():
-    """Creates a class for COS in the backend. [cors]_ [flaskcors]_
+    """Creates a class for COS in the backend. [cors]_ [fcors]_
 
     Per the CORS documentation, the settings for CORS are determined in the
     following order:

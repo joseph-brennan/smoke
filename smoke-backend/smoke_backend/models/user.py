@@ -1,8 +1,5 @@
 # -*- coding: utf-8 -*-
 """Defines the user model for the database
-
-.. [#f1] http://flask-sqlalchemy.pocoo.org/2.3/models/
-.. [#f2] https://passlib.readthedocs.io/en/stable/
 """
 from smoke_backend.extensions import db, pwd_context
 
@@ -10,7 +7,7 @@ class User(db.Model):
     """Basic user model.
 
     Extends SQLAlchemy Model to define the ORM for a User of smoke.
-    [fsqulamodels]_
+    [fsqlamodels]_
 
     Attributes:
         id (int): The unique identification number of the user. (Primary key)
@@ -37,7 +34,7 @@ class User(db.Model):
 
         Parameters:
             **kwargs: The keyword arguments passed to the SQLAlchemy Model
-                constructor (which this class inherits from) [fsqulamodels]_
+                constructor (which this class inherits from) [fsqlamodels]_
         """        
         super(User, self).__init__(**kwargs)
         self.password = pwd_context.hash(self.password)

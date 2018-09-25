@@ -28,5 +28,3 @@ References
 .. [page] http://flask-sqlalchemy.pocoo.org/2.3/api/#flask_sqlalchemy.Pagination
 .. [pas] https://passlib.readthedocs.io/en/stable/
 .. [restful] https://restful-api-design.readthedocs.io/en/latest/resources.html
-
-
