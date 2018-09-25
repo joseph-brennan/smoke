@@ -6,6 +6,8 @@ Attributes:
 
 .. [#f1] https://flask-restful.readthedocs.io/en/latest/
 .. [#f2] http://flask.pocoo.org/docs/1.0/blueprints/#blueprints
+.. [#f3] http://flask.pocoo.org/docs/1.0/api/#flask.json.jsonify
+.. [#f4] https://flask-jwt-extended.readthedocs.io/en/latest/token_freshness.html
 """
 
 from flask import request, jsonify, Blueprint
@@ -27,13 +29,16 @@ blueprint = Blueprint('auth', __name__, url_prefix='/auth')
 def login():
     """Authenticate user and return token.
 
-    Uses JSON for serialization and communication with the user server.
+    Uses flask's jsonify [#f3]_ function to convert requests to valid JSON objects.
 
     Return:
         flask.Response: If valid request & credentials, returns the valid access tokens for the backend.
 
             If the user password or username is missing or invalid then method returns a JSON message noting how the
-            method failed
+            method failed.
+
+    .. _Flask Local Proxy Request through werkzeug local:
+        http://werkzeug.pocoo.org/docs/0.14/wrappers/
     """
     if not request.is_json:
         return jsonify({"msg": "Missing JSON in request"}), 400
@@ -60,7 +65,13 @@ def login():
 @blueprint.route('/refresh', methods=['POST'])
 @jwt_refresh_token_required
 def refresh():
-    """receives access token and refreshes the page"""
+    """Receives access token and refreshes the page.
+
+    Requires a valid jwt token [#f4]_ for access to method.
+
+    Returns:
+        Flask Response: A JSONified object containing the updated contents of the login page.
+    """
     current_user = get_jwt_identity()
     ret = {
         'access_token': create_access_token(identity=current_user)
@@ -70,5 +81,12 @@ def refresh():
 
 @jwt.user_loader_callback_loader
 def user_loader_callback(identity):
-    """Returns user information"""
+    """Returns user information
+
+    Parameters:
+        identity:
+
+    Returns:
+
+    """
     return User.query.get(identity)
