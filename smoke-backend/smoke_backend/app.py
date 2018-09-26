@@ -63,8 +63,8 @@ def configure_extensions(app, cli):
     Parameters:
         app (Flask): Flask application to configure [fconfig]_
 
-        cli (bool): if command line interface is used, repository is migrated;
-            default is false
+        cli (bool): if command line interface is used, migration repository
+            is created; default is false
     """
     cors.init_app(app)
     db.init_app(app)
@@ -77,7 +77,7 @@ def configure_extensions(app, cli):
 def register_blueprints(app):
     """Register all blueprints for application. [fblueprint]_
 
-    Args:
+    Parameters:
         app(Flask): Flask application to register the blueprints with.
             [fblueprint]_
 
