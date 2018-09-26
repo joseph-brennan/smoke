@@ -94,6 +94,12 @@ TODO:
  - Document any relevant helper methods/classes, following the format of the
    other two sections.
  - Clarify ORN programs (possible typo?) and add citation.
+ - Document:
+   * fsqla http://flask-sqlalchemy.pocoo.org/2.3/
+   * fsqlamodels http://flask-sqlalchemy.pocoo.org/2.3/models/
+   * fsqlaquries http://flask-sqlalchemy.pocoo.org/2
+     .3/queries/#querying-records
+   * fsqlaschema http://docs.sqlalchemy.org/en/latest/core/schema.html
 
 
 View - ViewJS
