@@ -59,7 +59,7 @@ class Cors():
         """ Defines arguments to leverage flasks CORS method
 
         Parameters:
-        	app (Flask app): the Flask app from which to configure CORS model.
+            app (Flask app): the Flask app from which to configure CORS model.
         """
 
         CORS(app, *args, **kwargs)

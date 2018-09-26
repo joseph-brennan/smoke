@@ -16,6 +16,7 @@ from flask import url_for, request
 DEFAULT_PAGE_SIZE = 50
 DEFAULT_PAGE_NUMBER = 1
 
+
 def paginate(query, schema):
     """A simple helper to paginate a query. [page]_
 
