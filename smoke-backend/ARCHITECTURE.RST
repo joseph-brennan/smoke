@@ -82,16 +82,19 @@ for building user interfaces, allows to build different
 components on a web single page, and makes it easier to maintain and 
 to test.
 
-  -Vue.js-Components
-    .. allow Smoker to have all the different componets such as the editor,
+- Vue.js-Components
+
+    allow Smoker to have all the different componets such as the editor,
     console, comments area, and testing screen seperate.
 
-  -Vue.js -Testing 
-    .. Because all the components are separate it makes testing and maintaing 
+- Vue.js-Testing 
+
+    Because all the components are separate it makes testing and maintaing 
     the application easier.
 
-  -Vue.js -Responsiveness
-    .. Vue Framework is responsive which allows for changes to immediatly be updated 
+- Vue.js-Responsiveness
+
+    Vue Framework is responsive which allows for changes to immediatly be updated 
     onto the webpage. 
 
     ** More info on Vue.js: https://vuejs.org/v2/guide/ 
