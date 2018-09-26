@@ -79,11 +79,26 @@ model - **add info**
 
 
 
-View
+View -ViewJS
 -----
+VueJS is a approachable, versitile, performant porgressive framework
+for building user interfaces, allows to build different 
+components on a web single page, and makes it easier to maintain and 
+to test.
 
-front-end - **add info**
+  -Vue.js-Components
+    .. allow Smoker to have all the different componets such as the editor,
+    console, comments area, and testing screen seperate.
 
+  -Vue.js -Testing 
+    .. Because all the components are separate it makes testing and maintaing 
+    the application easier.
+
+  -Vue.js -Responsiveness
+    .. Vue Framework is responsive which allows for changes to immediatly be updated 
+    onto the webpage. 
+
+    ** More info on Vue.js: https://vuejs.org/v2/guide/ 
 
 Clic()
 ------
@@ -112,6 +127,10 @@ possible, visit these links:
 * PEP257_
 
 .. _PEP257: https://www.python.org/dev/peps/pep-0257/
+
+* VueJS_
+
+.. _VueJS: https://vuejs.org/v2/guide/
 
 
 
