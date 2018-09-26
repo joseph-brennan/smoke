@@ -97,7 +97,7 @@ to test.
     Vue Framework is responsive which allows for changes to immediatly be updated 
     onto the webpage. 
 
-    .. More info on Vue.js: https://vuejs.org/v2/guide/ 
+    * More info on Vue.js: https://vuejs.org/v2/guide/ 
 
 Clic()
 ------
