@@ -17,4 +17,4 @@ RUN pip install -U pip tox codecov
 #tell docker which port to connect on
 EXPOSE 8080
 
-#USER jenkins
+USER jenkins
