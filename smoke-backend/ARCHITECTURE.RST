@@ -90,8 +90,8 @@ calls to SQL statements. This allows programmers to write ORN programs instead
 of SQL statements. **CLARIFICATION**
 
 TODO:
- - Document any relevant helper methods, following the format of the other two
-   sections.
+ - Document any relevant helper methods/classes, following the format of the
+   other two sections.
  - Clarify ORN programs (possible typo?) and add citation.
 
 
