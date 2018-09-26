@@ -32,7 +32,7 @@ Attributes:
         Provided by Flask-Migrate. [fmig]_
 
     pwd_context (PassLib context): Cryptographic password handler.
-    
+
         Provided by PassLib. [pas]_
 """
 from flask_sqlalchemy import SQLAlchemy

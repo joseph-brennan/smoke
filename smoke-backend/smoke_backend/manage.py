@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
-"""Top level management of the application through flask [f]_
+"""Top level management of the application through flask. [f]_
 
 This module controls/manages the functioning of the smoke backend application.
-It is responsible for
+It is responsible for\:
 
     * Creating the default user
     * Signing the user in
@@ -16,7 +16,7 @@ from smoke_backend.app import create_app
 
 
 def create_smoke(info):
-    """Get application from application factory method
+    """Get application from application factory method.
 
     Parameters:
         info (str): Currently not used.
