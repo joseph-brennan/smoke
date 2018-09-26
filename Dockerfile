@@ -11,6 +11,6 @@ RUN apk update && apk add alpine-sdk python-dev ruby python python3 py-pip yarn 
 RUN pip install -U pip tox codecov
 
 #tell docker which port to connect on
-EXPOSE 8000
+EXPOSE 8080
 
-USER jenkins
+#USER jenkins
