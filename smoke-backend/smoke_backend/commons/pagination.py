@@ -1,24 +1,38 @@
 # -*- coding: utf-8 -*-
 
-"""Simple helper to paginate query.
+"""Simple helper to paginate query
+
+Attributes:
+    DEFAULT_PAGE_SIZE (int): The default amount of objects to put on a single
+        page (50).
+
+    DEFAULT_PAGE_NUMBER (int): The default beginning of the page sequence (1).
+
+.. _Flask Pagination:
+    http://flask.pocoo.org/snippets/44/
 """
 from flask import url_for, request
 
 DEFAULT_PAGE_SIZE = 50
 DEFAULT_PAGE_NUMBER = 1
 
+
 def paginate(query, schema):
-    """A simple helper to paginate a query.
+    """A simple helper to paginate a query. [page]_
 
-    This function will separate the query results into pages with 50 entries per page. It will also create links to the
-    next and previous result pages.
+    Breaks apart a query returned by SQLAlchemy as defined through smoke's
+    SQLAlchemy schema. [fsqlaquries]_ [fsqlaschema]_ The function returns the
+    total number of pages, the current page a user is on, the next page object,
+    the previous page object, and the results of the current page.
 
-    Args:
-         query (dictionary): The inquiry for the database
-         schema (object): The architecture of the database
+    Parameters:
+        query (SQLAlchemy Query): The query to paginate. [fsqlaquries]_
+
+        schema (Flask-SQLAlchemy Schema): The ORM schema which defines the
+            objects in the database. [fsqlaschema]_
 
     Returns:
-         dictionary: Results of the pagination
+        JSON: Paginated view of the query passed in.
     """
     page = request.args.get('page', DEFAULT_PAGE_NUMBER)
     per_page = request.args.get('page_size', DEFAULT_PAGE_SIZE)

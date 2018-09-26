@@ -1,40 +1,56 @@
 # -*- coding: utf-8 -*-
+"""Top level management of the application through flask. [f]_
 
-''' Command Line Tools '''
-import click 
-''' Flask Command Line Tools'''
+This module controls/manages the functioning of the smoke backend application.
+It is responsible for\:
+
+    * Creating the default user
+    * Signing the user in
+    * Managing the user database
+
+"""
+
+import click
 from flask.cli import FlaskGroup
-''' Import application factory method '''
 from smoke_backend.app import create_app
 
 
 def create_smoke(info):
-    ''' Get application from application factory method '''
+    """Get application from application factory method.
+
+    Parameters:
+        info (str): Currently not used.
+
+    Returns:
+        Flask: The Flask [f]_ controller object for the backend
+
+    """
     return create_app(cli=True)
 
 
 @click.group(cls=FlaskGroup, create_app=create_smoke)
 def cli():
-    """Main entry point"""
+    """Main entry point
+
+    Forms the entry point for when this method is called as a stand-alone
+    application.
+    """
 
 
 @cli.command("init")
 def init():
-    """Init application, create database tables
-    and create a new user named admin with password admin
+    """Initialize application
+
+    Initializes the SQLAlchemy [flasksqla]_ database and adds a default user.
     """
-    
-    '''' Import the database of User objects through SQLAlchemy '''
+
     from smoke_backend.extensions import db
-    ''' Import the User class '''
     from smoke_backend.models import User
-    
-    ''' Form the database tables '''
+
     click.echo("create database")
     db.create_all()
     click.echo("done")
 
-    ''' Create the default user '''
     click.echo("create user")
     user = User(
         username='admin',
@@ -42,12 +58,11 @@ def init():
         password='admin',
         active=True
     )
-    
-    ''' Add the user to the database '''
+
     db.session.add(user)
     db.session.commit()
     click.echo("created user admin")
 
+
 if __name__ == "__main__":
-    ''' If this method is called as the main method, start client mode '''
     cli()
