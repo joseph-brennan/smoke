@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-""""Creates an instance of Flask and configures its' extensions. [fextensions]_
+"""Creates an instance of Flask and configures its' extensions. [fextensions]_
 """
 from flask import Flask
 
@@ -23,7 +23,7 @@ def create_app(config=None, testing=False, cli=False):
             migration; default is `False`.
 
     Returns:
-        Flask: New Flask object with initialized extensions.
+        Flask: New Flask application with initialized extensions.
     """
     app = Flask('smoke_backend')
     configure_app(app, testing)
@@ -61,8 +61,7 @@ def configure_extensions(app, cli):
     """Configure flask extensions located in extensions.py.
 
     Parameters:
-        app (Flask): used for configuring the extensions of the created Flask
-            instance
+        app (Flask): Flask application to configure [fconfig]_
 
         cli (bool): if command line interface is used, repository is migrated;
             default is false
@@ -79,7 +78,8 @@ def register_blueprints(app):
     """Register all blueprints for application. [fblueprint]_
 
     Args:
-        app(Flask): the newly created Flask instance for configuration
+        app(Flask): Flask application to register the blueprints with.
+            [fblueprint]_
 
     """
     app.register_blueprint(auth.views.blueprint)
