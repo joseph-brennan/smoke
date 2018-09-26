@@ -2,7 +2,7 @@
 
 """Extensions registry.
 
-All extensions here are used as singletons and initialized in application
+All extensions here are used as singletons and initialized in their application
 factory.
 
 Attributes:
@@ -12,6 +12,7 @@ Attributes:
         Provided by Flask-CORS [fcors]_
 
     db (flask_sqlalchemy): The SQL database handler.
+
         Provided by Flask-SQLAlchemy. [fsqla]_
 
     jwt (flask_jwt_extended): The JWT handler to process JSON web tokens.
@@ -31,6 +32,7 @@ Attributes:
         Provided by Flask-Migrate. [fmig]_
 
     pwd_context (PassLib context): Cryptographic password handler.
+    
         Provided by PassLib. [pas]_
 """
 from flask_sqlalchemy import SQLAlchemy
