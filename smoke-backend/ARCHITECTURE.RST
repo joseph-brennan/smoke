@@ -70,7 +70,10 @@ and community made extensions.
 Model - ORM - SQLAlchemy
 -------------------------
 
-model - **add info**
+SQLAlchemy is an object-relational mapping (ORM) tool. It is a tool that facilities communication between
+Python programs and databases. It translates Python classes to tables on relational databases and
+automatically converts function calls to SQL statements. This allows programmers to write ORN programs
+instead of SQL statements. SQLAlchemy’s code is easier to read and maintain than SQL statements.
 
 
 
