@@ -1,4 +1,4 @@
 class Privileges(Enum):
-    0 : 'student'
-    1 : 'teacher'
-    2 : 'admin'
+    0 : 'STUDENT'
+    1 : 'TEACHER'
+    2 : 'ADMIN'
