@@ -1,4 +1,5 @@
+from enum import Enum
 class Privileges(Enum):
-    0 : 'STUDENT'
-    1 : 'TEACHER'
-    2 : 'ADMIN'
+    'STUDENT' = 0
+    'TEACHER' = 1 
+    'ADMIN' = 2 
