@@ -10,10 +10,15 @@ DEFAULT_PAGE_NUMBER = 1
 def paginate(query, schema):
     """A simple helper to paginate a query.
 
-    This function will take a query and schema and separate the query results into pages with 50 entries per page.
-    It will also create links to the next and previous result pages as objects called next and previous.
-    The function returns the total number of pages, the current page a user is on, the next page object, the previous
-    page object, and the results of the current page.
+    This function will separate the query results into pages with 50 entries per page. It will also create links to the
+    next and previous result pages.
+
+    Args:
+         query (dictionary): The inquiry for the database
+         schema (object): The architecture of the database
+
+    Returns:
+         dictionary: Results of the pagination
     """
     page = request.args.get('page', DEFAULT_PAGE_NUMBER)
     per_page = request.args.get('page_size', DEFAULT_PAGE_SIZE)
