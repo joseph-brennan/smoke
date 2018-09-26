@@ -1,9 +1,9 @@
-==================
+##################
 Smoke Architecture
-==================
+##################
 
 Purpose
--------
+=======
 
 Smoke allows teachers to create learning environments for students to learn
 any programming language.
@@ -20,13 +20,14 @@ containerization implementation provided by Docker.
 
 
 Architecture Model - MVC
-------------------------
+========================
 
 MVC 
-^^^
+---
+
 .. image:: https://upload.wikimedia.org/wikipedia/commons/a/a0/MVC-Process.svg
 
-The Model-View-Controller(MVC) is an architectural pattern [MVC]_. It contains
+The Model-View-Controller([MVC]_) is an architectural pattern. It contains
 three main logical components are the model, the view, and the controller.
 These three components are closely related, but still independent of each
 other. Each component provides an interface to the outer component for
@@ -43,7 +44,7 @@ facilitates maintenance and upgrade.
 
 
 Controller - Flask
-^^^^^^^^^^^^^^^^^^
+------------------
 
 Flask is used as the controller for the MVC architecture, bridging the gap
 between what the user sees and what is happening behind the scenes. [f]_  It
@@ -81,7 +82,7 @@ built in extensions and community made extensions.
     backend.
 
 Model - ORM - SQLAlchemy
-^^^^^^^^^^^^^^^^^^^^^^^^
+------------------------
 
 SQLAlchemy is an object-relational mapping (ORM) tool. Facilities
 communication between Python programs and databases. Translates Python classes
@@ -96,7 +97,7 @@ TODO:
 
 
 View - ViewJS
-^^^^^^^^^^^^^
+-------------
 
 VueJS is an 'approachable, versatile,' and efficient framework for building
 user web interfaces. [vue]_ Allows the programmer to build different
