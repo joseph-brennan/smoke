@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 from smoke_backend.extensions import db, pwd_context
-import smoke_backend.models.modelhelpers.enum_privilege as p_enum
+from smoke_backend.models.modelhelpers.enum_privilege import Privileges as p_enum
 
 class User(db.Model):
     """Basic user model, utilizing an enum helper to give predefined value for permission level
