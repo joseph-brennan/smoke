@@ -18,8 +18,32 @@ describe('auth', () => {
     expectAsync({
       status: 200,
       response: {
-        access_token: 'Hooray!'
+        access_token: 'admin',
+        user:{
+          active: true,
+          email: "admin@mail.com",
+          id: 1,
+          username: "admin",
+          permission: "Admin"
+        },
+        user:{
+          active: true,
+          email: "student@mail.com",
+          id: 1,
+          username: "student",
+          permission: "Student"
+        },
+        user:{
+          active: true,
+          email: "teacher@mail.com",
+          id: 1,
+          username: "teacher",
+          permission: "teacher"
+        }
       }
+      
+      
+      
     }, () => {
       auth.checkAuth()
       expect(auth.user.authenticated).to.equal(true)
