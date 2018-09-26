@@ -19,9 +19,24 @@ all of these, done thorough a web browser with an internet connection.
 Architecture Model
 ------------------
 
-MVC -- **add info**
+MVC 
+------------------
+The Model-View-Controller(MVC) is an architectural pattern which how to design a program structure.
+It contains three main logical components: the model, the view, and the controller. These three 
+components are closely related, but they are independent of each other. The changes inside each 
+component do not affect other components. Each component provides an interface to the outer 
+component for calling. In this way, the software can be modularized, and the modification of 
+the appearance or the change of data does not require modification of other components, 
+which greatly facilitates maintenance and upgrade.
 
-
+-Model
+ It is the data or information that the program needs to operate.
+-View
+ It faces the final user directly and it is the user interface that is provided to the user.
+-Controller
+ It is responsible for selecting the data in the "model" according to the instructions entered 
+ by the user from the "view", and then performing corresponding operations to produce the final result.
+ 
 
 
 Controller - Flask
