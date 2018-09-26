@@ -33,32 +33,28 @@ micro-framework designed to do only what it needs to do, and do it well.
 Flask provides many tools to keep the backend clean and concise through both built in extensions
 and community made extensions.
 
-- Flask-SQLAlchemy_
-    .. _Flask-SQLAlchemy: http://flask-sqlalchemy.pocoo.org/2.3/
+- Flask-SQLAlchemy [fsqla]_
 
     Flask provides direct access to the database (SQLAlchemy)
 
     * Has built-in support with "useful defaults and extra helpers" to quicken and simplify database management
 
-- Flask-Migrate_
-    .. _Flask-Migrate: https://flask-migrate.readthedocs.io/en/latest/
+- Flask-Migrate [fmig]_
 
     Flask-Migrate allows a migration repository for the database (SQLAlchemy), or multiple databases, through the
     use of the Flask and Flask-Script command-line interface
 
-- Flask-Marshmallow_
-    .. _Flask-Marshmallow: https://flask-marshmallow.readthedocs.io/en/latest/
+- Flask-Marshmallow [fmar]_
 
     Flask-marshmallow allows integration between the Flask app and marshmallow,
     a library used for converting complex datatypes into Python datatypes and vice versa
 
-- Flask-CORS_
-    .. _Flask-CORS: https://flask-cors.readthedocs.io/en/latest/
+- Flask-CORS [fcors]_
 
     Cross Origin Resource Sharing that allows Cross Origin AJAX_ (Asynchronous JavaScript
     and XML)
 
-    .. _AJAX: http://http://www.ajax-cross-origin.com/how.html
+
 
     * Allows web apps to send and retrieve data without changing the user's view of the page
 

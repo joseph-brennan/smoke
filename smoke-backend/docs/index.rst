@@ -12,6 +12,7 @@ Welcome to Smoke-Backend's documentation!
    architecture
    authors
    history
+   references
 
 Indices and tables
 ==================

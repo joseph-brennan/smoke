@@ -1,12 +1,14 @@
 # -*- coding: utf-8 -*-
-"""Top level management of the application
+"""Top level management of the application through flask. [f]_
 
 This module controls/manages the functioning of the smoke backend application.
-It is responsible for
+It is responsible for\:
 
     * Creating the default user
     * Signing the user in
-    * Managing the user database"""
+    * Managing the user database
+
+"""
 
 import click
 from flask.cli import FlaskGroup
@@ -14,15 +16,13 @@ from smoke_backend.app import create_app
 
 
 def create_smoke(info):
-    """Get application from application factory method
+    """Get application from application factory method.
 
-    Args:
-        info (str): An info string which is never used
+    Parameters:
+        info (str): Currently not used.
 
     Returns:
-        Flask: The Flask [#f1]_ controller object for the backend
-
-    .. [#f1] http://flask.pocoo.org/
+        Flask: The Flask [f]_ controller object for the backend
 
     """
     return create_app(cli=True)
@@ -32,8 +32,8 @@ def create_smoke(info):
 def cli():
     """Main entry point
 
-    Forms the entry point for when this method is called as
-    a stand-alone application.
+    Forms the entry point for when this method is called as a stand-alone
+    application.
     """
 
 
@@ -41,7 +41,7 @@ def cli():
 def init():
     """Initialize application
 
-    Creates the default user & creates the database users
+    Initializes the SQLAlchemy [flasksqla]_ database and adds a default user.
     """
 
     from smoke_backend.extensions import db

@@ -1,16 +1,15 @@
 # -*- coding: utf-8 -*-
 """Setting up API routes
 
-Uses a Flask blueprint [#f1]_ to control the function of the various libraries used by smoke.
+Uses a Flask blueprint to control the function of the various libraries used
+by smoke. [f]_ [fblueprint]_
 
 Attributes:
-    blueprint (Flask Blueprint): The blueprint [#f1]_ [#f3]_ for the smoke api.
+    blueprint (Flask Blueprint): The blueprint for the smoke api.
+        [fblueprint]_ [frestful]_
 
-    api (Flask-RESTful): An extension for Flask to build RESTful APIs through ORM libraries. [#f2]_
-
-.. [#f1] http://flask.pocoo.org/docs/1.0/blueprints/
-.. [#f2] https://flask-restful.readthedocs.io/en/latest/
-.. [#f3] http://flask.pocoo.org/docs/1.0/blueprints/#blueprints
+    api (Flask-RESTful): An extension for Flask to build RESTful APIs through
+        ORM libraries. [frestful]_
 """
 from flask import Blueprint
 from flask_restful import Api

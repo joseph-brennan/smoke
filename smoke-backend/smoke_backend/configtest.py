@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-""" Tells how to connect to the database
+"""Testing scheme for the configuration of Flask. [fconfig]_
 """
 
 SQLALCHEMY_DATABASE_URI = "sqlite:///:memory:"
