@@ -13,7 +13,6 @@ def create_smoke(info):
 @click.group(cls=FlaskGroup, create_app=create_smoke)
 def cli():
     """Main entry point"""
-    init()
 
 
 @cli.command("init")
