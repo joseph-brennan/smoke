@@ -1,6 +1,5 @@
 from smoke_backend.extensions import db, pwd_context
 
-
 class User(db.Model):
     """Basic user model
     utilizing an enum helper to give predefined
