@@ -31,8 +31,8 @@ def db(app):
 
     yield _db
 
-    #_db.session.close()
-    #_db.drop_all()
+    _db.session.close()
+    _db.drop_all()
 
 
 @pytest.fixture
@@ -49,6 +49,20 @@ def admin_user(db):
 
     return user
 
+
+@pytest.fixture
+def teacher_user(db):
+    user = User(
+        username='teacher',
+        email='teacher@teacher.com',
+        password='teacher',
+        privilege_id=2
+    )
+
+    db.session.add(user)
+    db.session.commit()
+
+    return user
 
 @pytest.fixture
 def admin_headers(admin_user, client):
