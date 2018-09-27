@@ -3,7 +3,7 @@ from smoke_backend.extensions import db, pwd_context
 
 class User(db.Model):
     """Basic user model
-    - utilizing an enum helper to give predefined
+    utilizing an enum helper to give predefined
     value for permission level
     """
     id = db.Column(db.Integer, primary_key=True)
@@ -13,6 +13,9 @@ class User(db.Model):
     active = db.Column(db.Boolean, default=True)
     privilege_id = db.Column(
         db.Integer, db.ForeignKey('privilege.id'), default=1)
+
+    # Relationship
+    privilege = db.relationship('Privilege')
 
     def __init__(self, **kwargs):
         super(User, self).__init__(**kwargs)

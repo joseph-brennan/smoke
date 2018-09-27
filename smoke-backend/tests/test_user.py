@@ -18,7 +18,7 @@ def test_get_user_permission(client, db, user, admin_headers):
     data = {'username': 'labrat',
             'email': 'labrat@test.com',
             'password': 'labratsrule',
-            'permission': 1
+            'privilege_id': 1
             }
 
     rep = client.post(
@@ -34,6 +34,7 @@ def test_get_user_permission(client, db, user, admin_headers):
     assert user.username == 'labrat'
     assert user.email == 'labrat@test.com'
     assert user.privilege_id == 1
+    assert user.privilege.permission_level == 'STUDENT'
 
 def change_user_permission(client, db, user, admin_headers):
         data = {'username': 'labrat',
