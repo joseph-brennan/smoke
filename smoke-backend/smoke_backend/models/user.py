@@ -1,6 +1,5 @@
 from smoke_backend.extensions import db, pwd_context
 
-
 class User(db.Model):
     """Basic user model
     utilizing an enum helper to give predefined
@@ -14,7 +13,7 @@ class User(db.Model):
     password = db.Column(db.String(255), nullable=False)
     active = db.Column(db.Boolean, default=True)
     privilege_id = db.Column(
-        db.Integer, db.ForeignKey('privilege.id'), default=1)
+        db.Integer, db.ForeignKey('privilege_id'), default=1)
 
     # Relationship
     privilege = db.relationship('Privilege')
