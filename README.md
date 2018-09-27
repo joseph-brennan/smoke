@@ -4,5 +4,5 @@
 
 [The Runner](smokr/README.rst)
 
-[![Codecov](https://codecov.io/gh/msudenvercs/smoke/branch/master/graph/badge.svg)](https://codecov.io/gh/msudenvercs/smoke)
-[![Build Status](https://www.travis-ci.com/msudenvercs/smoke.svg?branch=master)](https://www.travis-ci.com/msudenvercs/smoke)
+[![codecov](https://codecov.io/gh/joseph-brennan/smoke/branch/develop/graph/badge.svg)](https://codecov.io/gh/joseph-brennan/smoke)
+[![Build Status](https://travis-ci.org/joseph-brennan/smoke.svg?branch=develop)](https://travis-ci.org/joseph-brennan/smoke)
