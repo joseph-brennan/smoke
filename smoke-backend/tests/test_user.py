@@ -1,7 +1,7 @@
 import factory
 from pytest_factoryboy import register
 
-from smoke_backend.models import User
+from smoke_backend.models import User, Privilege
 
 
 @register
@@ -14,6 +14,54 @@ class UserFactory(factory.Factory):
     class Meta:
         model = User
 
+def test_get_user_permission(client, db, user, admin_headers):
+    data = {'username': 'labrat',
+            'email': 'labrat@test.com',
+            'password': 'labratsrule',
+            'permission': 1
+            }
+
+    rep = client.post(
+        '/api/v1/users',
+        json=data,
+        headers=admin_headers
+    )
+    assert rep.status_code == 201
+
+    data = rep.get_json()
+    user = db.session.query(User).filter_by(id=data['user']['id']).first()
+
+    assert user.username == 'labrat'
+    assert user.email == 'labrat@test.com'
+    assert user.privilege_id == 1
+
+def change_user_permission(client, db, user, admin_headers):
+        data = {'username': 'labrat',
+                'email': 'labrat@test.com',
+                'password': 'labratsrule',
+                'privilege_id': 1
+                }
+
+        rep = client.post(
+            '/api/v1/users',
+            json=data,
+            headers=admin_headers
+        )
+        assert rep.status_code == 201
+
+        data = {'permission': 2}
+
+        rep = client.put(
+            '/api/v1/users/%d' % user.id,
+            json=data,
+            headers=admin_headers
+        )
+        assert rep,status_code == 200
+
+        data = rep.get_json()['user']
+        assert data['privilege_id'] == 2
+
+        check = db.session.query(User).filter_by().first() is None
 
 def test_get_user(client, db, user, admin_headers):
     # test 404
@@ -126,3 +174,11 @@ def test_get_all_user(client, db, user_factory, admin_headers):
     results = rep.get_json()
     for user in users:
         assert any(u['id'] == user.id for u in results['results'])
+
+def test_permission_table(client, db, admin_headers):
+
+    permissions = Privilege.query.all()
+
+    assert permissions[0].permission_level == "STUDENT"
+    assert permissions[1].permission_level == "TEACHER"
+    assert permissions[2].permission_level == "ADMIN"

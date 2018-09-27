@@ -13,6 +13,7 @@ def create_smoke(info):
 @click.group(cls=FlaskGroup, create_app=create_smoke)
 def cli():
     """Main entry point"""
+    init()
 
 
 @cli.command("init")
@@ -20,23 +21,6 @@ def init():
     """Init application, create database tables
     and create a new user named admin with password admin
     """
-    from smoke_backend.extensions import db
-    from smoke_backend.models import User
-    click.echo("create database")
-    db.create_all()
-    click.echo("done")
-
-    click.echo("create user")
-    user = User(
-        username='admin',
-        email='admin@mail.com',
-        password='admin',
-        active=True
-    )
-    db.session.add(user)
-    db.session.commit()
-    click.echo("created user admin")
-
 
 if __name__ == "__main__":
     cli()
