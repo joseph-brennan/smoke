@@ -87,19 +87,8 @@ Model - ORM - SQLAlchemy
 SQLAlchemy is an object-relational mapping (ORM) tool. Facilities
 communication between Python programs and databases. Translates Python classes
 into entries for SQL's relational databases. Automatically converts function
-calls to SQL statements. This allows programmers to write ORN programs instead
-of SQL statements. **CLARIFICATION**
-
-TODO:
- - Document any relevant helper methods/classes, following the format of the
-   other two sections.
- - Clarify ORN programs (possible typo?) and add citation.
- - Document:
-   * fsqla http://flask-sqlalchemy.pocoo.org/2.3/
-   * fsqlamodels http://flask-sqlalchemy.pocoo.org/2.3/models/
-   * fsqlaquries http://flask-sqlalchemy.pocoo.org/2
-     .3/queries/#querying-records
-   * fsqlaschema http://docs.sqlalchemy.org/en/latest/core/schema.html
+calls to SQL statements. This allows programmers to write ORM programs instead
+of SQL statements.
 
 
 View - ViewJS
