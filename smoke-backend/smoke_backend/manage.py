@@ -37,5 +37,6 @@ def init():
     and create a new user named admin with password admin
     """
 
+
 if __name__ == "__main__":
     cli()
