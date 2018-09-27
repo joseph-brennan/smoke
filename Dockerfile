@@ -5,21 +5,14 @@ FROM jenkinsci/blueocean
 USER root
 
 #run update and install prerequisites
-RUN apk update && apk add alpine-sdk python-dev ruby python python3 py-pip yarn openjdk8
+RUN apk update && apk add build-base alpine-sdk python2-dev python3-dev ruby python python3 py-pip yarn openjdk8 libffi-dev libffi 
 
 #python install stuff
-RUN pip install -U pip tox codecov
+RUN pip install -U pip tox codecov setuptools ez_setup
 
 #plugins install 
 COPY plugins.txt /usr/share/jenkins/plugins.txt
 RUN /usr/local/bin/install-plugins.sh < /usr/share/jenkins/plugins.txt
-
-ENV DISPLAY :99
-
-ADD run.sh /run.sh
-RUN chmod a+x /run.sh
-
-CMD /run.sh
 
 #tell docker which port to connect on
 EXPOSE 8080
