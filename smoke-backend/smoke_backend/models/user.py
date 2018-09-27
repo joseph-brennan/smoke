@@ -6,6 +6,8 @@ class User(db.Model):
     - utilizing an enum helper to give predefined
     value for permission level
     """
+    __tablename__ = 'users'
+    
     id = db.Column(db.Integer, primary_key=True)
     username = db.Column(db.String(80), unique=True, nullable=False)
     email = db.Column(db.String(80), unique=True, nullable=False)
