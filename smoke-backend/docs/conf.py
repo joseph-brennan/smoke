@@ -25,6 +25,7 @@ sys.path.insert(0, os.path.abspath('..'))
 
 import smoke_backend
 
+
 # -- General configuration ---------------------------------------------
 
 # If your documentation needs a minimal Sphinx version, state it here.
@@ -33,7 +34,17 @@ import smoke_backend
 
 # Add any Sphinx extension module names here, as strings. They can be
 # extensions coming with Sphinx (named 'sphinx.ext.*') or your custom ones.
-extensions = ['sphinx.ext.autodoc', 'sphinx.ext.viewcode']
+extensions = ['sphinx.ext.autodoc', 'sphinx.ext.viewcode',
+              'sphinx.ext.napoleon']
+
+# Autodoc extension settings
+autoclass_content = 'both'
+
+# Autodoc default settings
+autodoc_default_options = {
+    'special-members': '__init__',
+    'no-undoc-members': None    ,
+}
 
 # Add any paths that contain templates here, relative to this directory.
 templates_path = ['_templates']
