@@ -9,6 +9,3 @@ class Privilege(db.Model):
 
     def __init__(self, **kwargs):
         super(Privilege, self).__init__(**kwargs)
-
-    def __repr__(self):
-        return self.permission_level
