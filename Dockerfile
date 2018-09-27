@@ -14,6 +14,13 @@ RUN pip install -U pip tox codecov
 COPY plugins.txt /usr/share/jenkins/plugins.txt
 RUN /usr/local/bin/install-plugins.sh < /usr/share/jenkins/plugins.txt
 
+ENV DISPLAY :99
+
+ADD run.sh /run.sh
+RUN chmod a+x /run.sh
+
+CMD /run.sh
+
 #tell docker which port to connect on
 EXPOSE 8080
 
