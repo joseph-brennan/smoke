@@ -42,7 +42,7 @@ def test_login(client, db, user):
     assert rep.status_code == 400
     assert rep.get_json()['msg'] == 'Missing username or password'
 
-    #test 400 missing username
+    #test 400 missing permissions
     rep = client.post(
       '/auth/login',
       data=json.dumps({'username': 'bogus', 'password': 'bogus'}),
@@ -50,7 +50,6 @@ def test_login(client, db, user):
     )
     assert rep.status_code == 400
     assert rep.get_json()['msg'] == 'Bad credentials'
-
 
 def test_refresh(client, db, user, admin_refresh_headers):
     rep = client.post('/auth/refresh', headers=admin_refresh_headers)

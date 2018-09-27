@@ -11,8 +11,8 @@ class User(db.Model):
     email = db.Column(db.String(80), unique=True, nullable=False)
     password = db.Column(db.String(255), nullable=False)
     active = db.Column(db.Boolean, default=True)
-    privilege_id = db.Column(db.Integer, db.ForeignKey('privilege.id'),
-        default=1)
+    privilege_id = db.Column(
+        db.Integer, db.ForeignKey('privilege.id'), default=1)
 
     def __init__(self, **kwargs):
         super(User, self).__init__(**kwargs)

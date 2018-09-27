@@ -1,8 +1,7 @@
 # -*- coding: utf-8 -*-
 
 from smoke_backend.models import Privilege
-from smoke_backend.extensions import ma, db
-from smoke_backend.commons.pagination import paginate
+from smoke_backend.extensions import ma
 
 
 class PrivilegeSchema(ma.ModelSchema):

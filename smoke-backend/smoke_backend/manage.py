@@ -18,12 +18,13 @@ def cli():
     click.echo("create database")
     db.create_all()
     click.echo("done")
-     click.echo("create user")
+    click.echo("create user")
     user = User(
         username='admin',
         email='admin@mail.com',
         password='admin',
-        active=True
+        active=True,
+        privilege_id=3
     )
     db.session.add(user)
     db.session.commit()
