@@ -46,11 +46,11 @@ def init():
     """
 
     from smoke_backend.extensions import db
-    from smoke_backend.models import User
 
     click.echo("create database")
     db.create_all()
     click.echo("done")
+
 
 @cli.command("seed")
 def seed():
@@ -77,7 +77,6 @@ def seed():
     db.session.add(user)
     db.session.commit()
     click.echo("created user admin")
-
 
 
 if __name__ == "__main__":
