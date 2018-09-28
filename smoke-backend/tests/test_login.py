@@ -3,6 +3,7 @@ import factory
 from pytest_factoryboy import register
 
 from smoke_backend.models import User
+from smoke_backend.extensions import db
 
 
 @register
@@ -11,6 +12,7 @@ class UserFactory(factory.Factory):
     username = factory.Sequence(lambda n: 'user%d' % n)
     email = factory.Sequence(lambda n: 'user%d@mail.com' % n)
     password = "mypwd"
+    privilege_id = 1
 
     class Meta:
         model = User
@@ -40,7 +42,7 @@ def test_login(client, db, user):
     assert rep.status_code == 400
     assert rep.get_json()['msg'] == 'Missing username or password'
 
-    #test 400 missing username
+    #test 400 missing permissions
     rep = client.post(
       '/auth/login',
       data=json.dumps({'username': 'bogus', 'password': 'bogus'}),
@@ -48,7 +50,6 @@ def test_login(client, db, user):
     )
     assert rep.status_code == 400
     assert rep.get_json()['msg'] == 'Bad credentials'
-
 
 def test_refresh(client, db, user, admin_refresh_headers):
     rep = client.post('/auth/refresh', headers=admin_refresh_headers)
