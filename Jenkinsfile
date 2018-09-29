@@ -5,7 +5,7 @@ pipeline {
       steps {
         withEnv(['CHROME_BIN=chromium-browser', 'DISPLAY=:99.0']) {
           sh "sh -e /etc/init.d/xvfb start"
-          .travis/run.sh
+          sh .travis/run.sh
         }
       }
     }
