@@ -3,7 +3,10 @@ pipeline {
   stages {
     stage('Test') {
       steps {
-        sh '.travis/run.sh'
+        withEnv(['CHROME_BIN=chromium-browser', 'DISPLAY=:99.0']) {
+          sh -e /etc/init.d/xvfb start
+          .travis/run.sh
+        }
       }
     }
   }
