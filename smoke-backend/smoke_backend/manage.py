@@ -12,6 +12,7 @@ It is responsible for\:
 
 import click
 from flask.cli import FlaskGroup
+
 from smoke_backend.app import create_app
 
 
@@ -45,20 +46,34 @@ def init():
     """
 
     from smoke_backend.extensions import db
-    from smoke_backend.models import User
 
     click.echo("create database")
     db.create_all()
     click.echo("done")
+
+
+@cli.command("seed")
+def seed():
+    from smoke_backend.extensions import db
+    from smoke_backend.models import Privilege, User
+
+    privilege1 = Privilege(permission_level="STUDENT")
+    privilege2 = Privilege(permission_level="TEACHER")
+    privilege3 = Privilege(permission_level="ADMIN")
+    db.session.add(privilege1)
+    db.session.add(privilege2)
+    db.session.add(privilege3)
+
+    db.session.commit()
 
     click.echo("create user")
     user = User(
         username='admin',
         email='admin@mail.com',
         password='admin',
-        active=True
-    )
-
+        active=True,
+        privilege=Privilege.query.get(3)
+        )
     db.session.add(user)
     db.session.commit()
     click.echo("created user admin")
