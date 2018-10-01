@@ -6,7 +6,10 @@ const LOGIN_URL = API_URL + 'auth/login'
 
 export default {
   user: {
-    authenticated: false
+    authenticated: false,
+    username: null,
+    email: '',
+    permission: ''
   },
 
   login (context, creds, redirect) {
@@ -24,6 +27,10 @@ export default {
         localStorage.setItem('access_token', resp.data.access_token)
 
         this.user.authenticated = true
+        this.user.username = resp.data.user.username
+        this.user.email = resp.data.user.email
+        this.user.permission = resp.data.user.permission
+
         if (redirect) {
           Router.go(redirect)
         }
