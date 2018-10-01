@@ -1,8 +1,6 @@
 # -*- coding: utf-8 -*-
 
-"""Default configuration
-
-Use env var to override
+"""Default configuration. Use `env` var to override
 """
 DEBUG = True
 SECRET_KEY = "changeme"

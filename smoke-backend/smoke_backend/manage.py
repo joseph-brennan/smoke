@@ -1,4 +1,14 @@
 # -*- coding: utf-8 -*-
+"""Top level management of the application through flask. [f]_
+
+This module controls/manages the functioning of the smoke backend application.
+It is responsible for\:
+
+    * Creating the default user
+    * Signing the user in
+    * Managing the user database
+
+"""
 
 import click
 from flask.cli import FlaskGroup
@@ -7,24 +17,40 @@ from smoke_backend.app import create_app
 
 
 def create_smoke(info):
+    """Get application from application factory method.
+
+    Parameters:
+        info (str): Currently not used.
+
+    Returns:
+        Flask: The Flask [f]_ controller object for the backend
+
+    """
     return create_app(cli=True)
 
 
 @click.group(cls=FlaskGroup, create_app=create_smoke)
 def cli():
-    """Main entry point"""
+    """Main entry point
 
+    Forms the entry point for when this method is called as a stand-alone
+    application.
+    """
 
 
 @cli.command("init")
 def init():
-    """Init application, create database tables
-    and create a new user named admin with password admin
+    """Initialize application
+
+    Initializes the SQLAlchemy [flasksqla]_ database and adds a default user.
     """
+
     from smoke_backend.extensions import db
+
     click.echo("create database")
     db.create_all()
     click.echo("done")
+
 
 @cli.command("seed")
 def seed():
@@ -51,7 +77,6 @@ def seed():
     db.session.add(user)
     db.session.commit()
     click.echo("created user admin")
-
 
 
 if __name__ == "__main__":
