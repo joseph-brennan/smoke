@@ -11,3 +11,5 @@ Sub-Task: JavaScript course
 Assignee: Eryn Kelsey-Adkins
 Description: link to course, details, status
 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Updated Jira for Sprint 3
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
