@@ -1,5 +1,6 @@
 <template>
   <div id="Home" class="col-sm-6 col-sm-offset-3">
+    <v-button :onClick="
     <h1>Welcome!</h1>
   </div>
 </template>
