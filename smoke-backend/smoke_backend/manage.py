@@ -57,12 +57,15 @@ def seed():
     """Seeds the database with the standard privilege values.
 
     Relative values noted here are in *descending order*, in that a relative
-    privilege value of 1 is the highest value.
+    privilege value of 3 is the highest value.
+
+    Function also initializes the default user, with a privilege value of
+    Admin (3).
 
     Values:
-        Student: User which defines the code to test. (Relative value: 3)
+        Student: User which defines the code to test. (Relative value: 1)
         Teacher: User which defines the test cases. (Relative value: 2)
-        Admin: User which has complete access. (Relative value 1)
+        Admin: User which has complete access. (Relative value 3)
 
     """
     from smoke_backend.extensions import db
