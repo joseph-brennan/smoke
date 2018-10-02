@@ -54,6 +54,11 @@ def init():
 
 @cli.command("seed")
 def seed():
+    """
+
+
+    :return:
+    """
     from smoke_backend.extensions import db
     from smoke_backend.models import Privilege, User
 
