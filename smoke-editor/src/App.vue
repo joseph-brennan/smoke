@@ -2,7 +2,6 @@
   <div id="app">
     <navbar></navbar>
     <router-view></router-view>
-    <button :onClick="encode64Click"></button>
   </div>
 </template>
 
@@ -14,13 +13,11 @@
 <script>
 import Navbar from '@/components/Navbar'
 import Auth from '@/auth'
-import Button from '@/components/Button'
 
 export default {
   name: 'app',
   components: {
-    Navbar,
-    Button 
+    Navbar
   },
 
   data () {
@@ -32,9 +29,6 @@ export default {
   methods: {
     logout () {
       Auth.logout()
-    }
-    encode64Click() {
-        console.log('Encoding button clicked')
     }
   }
 }
