@@ -1,6 +1,5 @@
 <template>
   <div>
-    <button :onClick="encode64Click"></button>
     <brace style="height: 500px"
       :fontsize="'12px'"
       :theme="'github'"
@@ -15,17 +14,10 @@
 
 <script>
 import Brace from 'vue-bulma-brace'
-import Button from '@/components/Button'
 
 export default {
   components: {
-    Brace,
-    Button 
-  }
-  methods: {
-    encode64Click() {
-        console.log('Encoding button clicked')
-    }
+    Brace
   }
 }
 </script>
