@@ -7,7 +7,7 @@
 </template>
 
 <style>
-@import '../node_modules/bulma/css/bulma.css'
+@import "../node_modules/bulma/css/bulma.css";
 </style>
 
 
@@ -20,7 +20,7 @@ export default {
   name: 'app',
   components: {
     Navbar,
-    Button 
+    Button
   },
 
   data () {
@@ -32,9 +32,9 @@ export default {
   methods: {
     logout () {
       Auth.logout()
-    }
-    encode64Click() {
-        console.log('Encoding button clicked')
+    },
+    encode64Click () {
+      console.log('Encoding button clicked')
     }
   }
 }
