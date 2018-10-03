@@ -43,7 +43,7 @@
   .dropdown {
     position: relative;
     top: 0px;
-    left: 490px;
+    left: 40px;
     display: inline-block;
   }
 
