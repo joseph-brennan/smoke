@@ -10,7 +10,7 @@
       :highlightline="true">
     </brace>
   
-    <button v-on:click="EncodeBase64 ()">Submit</button>
+    <button v-on:click="encodeBase64 ()">Submit</button>
   
   </div>
 </template>
