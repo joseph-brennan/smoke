@@ -1,5 +1,13 @@
 <template>
   <div id = "editor">
+    <div class="dropdown">
+      <button @click = "myFunction()" class = "dropbtn">Dropdown</button>
+      <div id='myDropdown' class="dropdown-content">
+        <a href="#">testing</a>
+        <a href="#">testing2</a>
+        <a href="#">testing3</a>
+      </div>
+    </div>
   <div>
     <brace style="height: 500px"
       :fontsize="'12px'"
@@ -11,15 +19,6 @@
       :highlightline="true">
     </brace>
   </div>
-  <div class="dropdown">
-    <button @click = "myFunction()" class = "dropbtn">Dropdown</button>
-    <div id='myDropdown' class="dropdown-content">
-      <a href="#">testing</a>
-      <a href="#">Link 1</a>
-      <a href="#">Link 2</a>
-      <a href="#">Link 3</a>
-    </div>
-  </div>
   </div>
 </template>
 
@@ -27,10 +26,10 @@
 <style>
   /* Dropdown button */
   .dropbtn {
-    background-color: #3498DB;
+    background-color: #333;
     color: white;
-    padding: 16px;
-    font-size: 16px;
+    padding: 3px;
+    font-size: 14px;
     border: none;
     cursor: pointer;
   }
@@ -43,6 +42,8 @@
   /* The container <div> - needed to position the dropdown content */
   .dropdown {
     position: relative;
+    top: 0px;
+    left: 490px;
     display: inline-block;
   }
 
