@@ -9,18 +9,18 @@
       :selectionstyle="'text'"
       :highlightline="true">
     </brace>
-  
-    <button v-on:click="encodeBase64 ()">Submit</button>
-  
+    <submit-button/>
   </div>
 </template>
 
 <script>
 import Brace from 'vue-bulma-brace'
+import SubmitButton from '@/components/SubmitButton'
 
 export default {
   components: {
-    Brace
+    Brace,
+    SubmitButton
   }
 }
 </script>
