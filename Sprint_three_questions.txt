@@ -1,0 +1,5 @@
+Sprint Three question
+
+ 1. So if I'm understanding correctly our assignment, Do we need to write a code that retrieves a JSON file from where ever the file is AND be able to test that file? But just for clarification we're not converting that file to be a python file.
+
+ 	Note:	~ Anyone is welcome to add any question that way we can kill two birds with one stone, Since Dr Beaty said each member has to make a commit twice a day.
