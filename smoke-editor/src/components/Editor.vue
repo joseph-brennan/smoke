@@ -12,10 +12,12 @@
     </brace>
   </div>
   <div class="dropdown">
-    <button onclick = "myFunction()" class = "dropbtn">Dropdown</button>
+    <button @click = "myFunction()" class = "dropbtn">Dropdown</button>
     <div id='myDropdown' class="dropdown-content">
       <a href="#">testing</a>
-
+      <a href="#">Link 1</a>
+      <a href="#">Link 2</a>
+      <a href="#">Link 3</a>
     </div>
   </div>
   </div>
@@ -77,7 +79,7 @@ export default {
     Brace
   },
   methods: {
-    myFunction () {
+    myFunction: function () {
       document.getElementById('myDropdown').classList.toggle('show')
     }
   }
