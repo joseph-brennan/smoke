@@ -9,6 +9,9 @@
       :selectionstyle="'text'"
       :highlightline="true">
     </brace>
+  
+    <button v-on:click="EncodeBase64 ()">Submit</button>
+  
   </div>
 </template>
 
