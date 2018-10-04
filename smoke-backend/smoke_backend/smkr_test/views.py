@@ -19,4 +19,7 @@ blueprint = Blueprint('JSON', __name__, url_prefix='/JSON')
 def stringifyJSON():
     subprocess.call(['./run_smkr.sh'])
     
-
+@blueprint.route('/refresh', methods=['POST'])
+@jwt_refresh_token_required
+def refresh():
+    subprocess.call(['.run_smkr.sh'])
