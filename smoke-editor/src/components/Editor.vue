@@ -7,9 +7,9 @@
       :codefolding="'markbegin'"
       :softwrap="'free'"
       :selectionstyle="'text'"
-      :highlightline="true">
+      :highlightline="true" v-on:code-change="editorCodeChanged">
     </brace>
-    <submit-button/>
+    <submit-button :editorCode="editorCodeString" />
   </div>
 </template>
 
@@ -21,6 +21,16 @@ export default {
   components: {
     Brace,
     SubmitButton
+  },
+  methods: {
+    editorCodeChanged: function (newCodeString) {
+      this.editorCodeString = newCodeString
+    }
+  },
+  data: function () {
+    return {
+      editorCodeString: null
+    }
   }
 }
 </script>
