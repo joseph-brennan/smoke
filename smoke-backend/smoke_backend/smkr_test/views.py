@@ -6,8 +6,6 @@ Attributes:
 """
 
 from flask import request, jsonify, Blueprint
-
-# from smoke_backend.extensions import pwd_context, jwt  -- shouldnt need this because this shouldnt handle login
 import subprocess
 
 
