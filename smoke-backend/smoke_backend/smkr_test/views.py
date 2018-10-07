@@ -6,7 +6,10 @@ Attributes:
 """
 
 from flask import request, jsonify, Blueprint
+import requests
 import subprocess
+import unittest
+from unittest import mock
 
 class JSONTester:
     def fetch_json(self,url):
@@ -33,7 +36,7 @@ def mocked_requests_get(*args,**kwargs):
        # mock the responses to each argument to be used in the test
         if args[0] == 'http://someurl.com/test.json':
             return MockResponse({"key1": "value1"}, 200)
-        elif argus[0] == 'http://someotherurl.com/anothertest.json':
+        elif args[0] == 'http://someotherurl.com/anothertest.json':
             return MockResponse({"key2": "value2"},200)
 
         return MockResponse(None, 404)
