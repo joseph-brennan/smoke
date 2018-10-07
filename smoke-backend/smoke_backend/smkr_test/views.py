@@ -16,7 +16,7 @@ blueprint = Blueprint('JSON', __name__, url_prefix='/JSON')
 
 @blueprint.route('/test', methods=['POST'])
 def stringifyJSON():
-    data = request.get_json
+    data = request.get_json()
     #stringify here or in script?
     subprocess.call(['./run_smkr.sh']) 
     value = subprocess.check_output(['run_smkr.sh', echo])
