@@ -6,8 +6,7 @@
 
 <script>
 
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js">
-</script>
+import axios from 'axios'
 
 export default {
   methods: {
@@ -19,13 +18,8 @@ export default {
 
       var encodedObject = window.btoa(this.editorCode)
 
-      $(document).ready(function () {
-        $('button').click(function () {
-          $.post('API_v1_test',
-            {
-              data: encodedObject
-            })
-        })
+      axios.post('API/v1/test', {
+        data: encodedObject
       })
     }
   },
