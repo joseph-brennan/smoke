@@ -40,6 +40,7 @@ def mocked_requests_get(*args,**kwargs):
             return MockResponse({"key2": "value2"},200)
 
         return MockResponse(None, 404)
+    #TODO: mock the stringifyJSON method (get stringify info from Ron)
 
 class JSONTesterTest(unittest.TestCase):
 
