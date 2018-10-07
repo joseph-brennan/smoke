@@ -22,8 +22,9 @@ def stringifyJSON():
     value = subprocess.check_output(['run_smkr.sh', echo])
     return value
 
-@blueprint.route('/refresh', methods=['POST'])
-def refresh():
-    subprocess.call(['.run_smkr.sh'])
-    value = subprocess.check_output(['run_smkr.sh', echo])
-    return value
+#Do we need a refresh route?
+#@blueprint.route('/refresh', methods=['POST'])
+#def refresh():
+#    subprocess.call(['.run_smkr.sh'])
+#    value = subprocess.check_output(['run_smkr.sh', echo])
+#    return value
