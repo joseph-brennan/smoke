@@ -6,8 +6,6 @@ Attributes:
 """
 
 from flask import request, jsonify, Blueprint
-
-# from smoke_backend.extensions import pwd_context, jwt  -- shouldnt need this because this shouldnt handle login
 import subprocess
 
 
@@ -16,9 +14,8 @@ blueprint = Blueprint('JSON', __name__, url_prefix='/JSON')
 
 @blueprint.route('/test', methods=['POST'])
 def stringifyJSON():
-
-    # request.jsonify() - something like this
-
+    data = request.get_json()
+    #stringify here or in shell script?
     subprocess.call(['./run_smkr.sh']) 
     value = subprocess.check_output(['run_smkr.sh', echo])
     return value
