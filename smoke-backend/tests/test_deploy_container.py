@@ -1,3 +1,4 @@
+from ..smoke_backend.smkr_test.views import JSONTester
 import sys
 sys.path.insert(0, '/Desktop/CS3250/smoke/smoke-backend/smoke_backend/smkr_test')
 import views
