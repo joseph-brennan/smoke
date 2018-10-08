@@ -9,6 +9,7 @@ from flask import request, jsonify, Blueprint
 import requests
 import subprocess
 import unittest
+import json
 from unittest import mock
 
 class JSONTester:
@@ -18,18 +19,37 @@ class JSONTester:
 
     blueprint = Blueprint('JSON', __name__, url_prefix='/JSON')
     @blueprint.route('/test', methods=['POST'])
-    def stringifyJSON():
+    def stringify_json(data):
         data = request.get_json()
+        string = __name__.stringify()
         #stringify here or in script?
-        subprocess.call(['./run_smkr.sh']) 
-        value = subprocess.check_output(['run_smkr.sh', echo])
-        return value
+        #subprocess.call(['./run_smkr.sh']) 
+        #value = subprocess.check_output(['run_smkr.sh', echo])
+        return string
 
 def mocked_requests_get(*args,**kwargs):
         class MockResponse:
             def __init__(self, json_data, status_code):
                 self.json_data = json_data
                 self.status_code = status_code
+                self.json_string = json_string
+
+            def json_string:
+                data = """
+                {
+                    "researcher": {
+                        "name": "Ford Prefect",
+                        "species": "Betelgeusian",
+                        "relatives": [
+                            {
+                                "name": "Zaphod Beeblebrox",
+                                "species": "Betelgeusian"
+                            }
+                        ]
+                    }
+                }
+                """
+                json_string = json.dumps(data)
 
             def json(self):
                 return self.json_data
@@ -49,6 +69,7 @@ class JSONTesterTest(unittest.TestCase):
      def test_fetch(self, mock_get):
          #assert requests.get calls
          jt = JSONTester()
+         json_string = jt.stringify_json(jt.
          json_data = jt.fetch_json('http://someurl.com/test.json')        
          self.assertEqual(json_data, {"key1": "value1"})
          json_data = jt.fetch_json('http://someotherurl.com/anothertest.json')
