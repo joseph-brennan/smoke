@@ -13,6 +13,16 @@
                        {{ lang.name }}
       </b-dropdown-item>
     </b-dropdown>
+
+    <brace style="height: 500px"
+           :fontsize="'12px'"
+           :theme="'github'"
+           :mode="selectedLanguage.tag"
+           :codefolding="'markbegin'"
+           :softwrap="'free'"
+           :selectionstyle="'text'"
+           :highlightline="true">
+    </brace>
   </div>
 </template>
 
