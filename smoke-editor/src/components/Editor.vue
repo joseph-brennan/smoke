@@ -1,69 +1,78 @@
 <template>
-  <div id = "editor">
-    <div class="dropdown is-active">
-      <div class="dropdown-trigger">
-        <button class="button" aria-haspopup="true" aria-controls="dropdown-menu">
-          <span>Editor Mode</span>
-          <span class="icon is-small">
-        <i class="fas fa-angle-down" aria-hidden="true"></i>
-      </span>
-        </button>
-      </div>
-      <div class="dropdown-menu" id="dropdown-menu" role="menu">
-        <div class="dropdown-content">
-          <a href="#" class="dropdown-item">
-            Python 2
-          </a>
-          <a class="dropdown-item">
-            Python 3
-          </a>
-          <a href="#" class="dropdown-item">
-            Ruby
-          </a>
-          <a href="#" class="dropdown-item">
-            Javascript
-          </a>
-        </div>
-      </div>
-    </div>
-  <div>
+  <div class = "editor">
+    <b-dropdown v-model="selectedLanguage">
+      <button slot="trigger" class="button is-primary">
+        <span>{{ selectedLanguage.name }}</span>
+        <b-icon icon="arrow-down"/>
+      </button>
+
+      <b-dropdown-item v-for="lang in languages"
+                       v-bind:value="lang"
+                       v-bind:key="lang.name">
+                       {{ lang.name }}
+      </b-dropdown-item>
+    </b-dropdown>
+
     <brace style="height: 500px"
-      :fontsize="'12px'"
-      :theme="'github'"
-      :mode="'python'"
-      :codefolding="'markbegin'"
-      :softwrap="'free'"
-      :selectionstyle="'text'"
-      :highlightline="true">
+           :fontsize="'12px'"
+           :theme="'github'"
+           :mode="selectedLanguage.tag"
+           :codefolding="'markbegin'"
+           :softwrap="'free'"
+           :selectionstyle="'text'"
+           :highlightline="true">
     </brace>
-  </div>
   </div>
 </template>
 
-<script>
-import Brace from 'vue-bulma-brace'
 
-export default {
+
+<script>
+import Vue from 'vue'
+import Brace from 'vue-bulma-brace'
+import Buefy from 'buefy'
+// import 'buefy/lib/buefy.css'
+
+Vue.use(Buefy)
+
+export default{
   components: {
     Brace
   },
-  methods: {
-    myFunction: function () {
-      document.getElementById('myDropdown').classList.toggle('show')
-    }
-  }
-}
-
-// Close the dropdown menu if the user clicks outside of it
-window.onclick = function (event) {
-  if (!event.target.matches('.dropbtn')) {
-    var dropdowns = document.getElementsByClassName('dropdown-content')
-    var i
-    for (i = 0; i < dropdowns.length; i++) {
-      var openDropdown = dropdowns[i]
-      if (openDropdown.classList.contains('show')) {
-        openDropdown.classList.remove('show')
+  data: function () {
+    let languages = [
+      {
+        name: 'Python 3',
+        tag: 'python'
+      },
+      {
+        name: 'Python 2',
+        tag: 'python'
+      },
+      {
+        name: 'Ruby',
+        tag: 'ruby'
+      },
+      {
+        name: 'Java',
+        tag: 'java'
+      },
+      {
+        name: 'JavaScript',
+        tag: 'javascript'
+      },
+      {
+        name: 'C++',
+        tag: 'cpp'
+      },
+      {
+        name: 'Erlang',
+        tag: 'erlang'
       }
+    ]
+    return {
+      languages: languages,
+      selectedLanguage: languages[0]
     }
   }
 }
