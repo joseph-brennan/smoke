@@ -14,19 +14,43 @@ import Buefy from 'buefy'
 Vue.use(Buefy)
 
 export default{
-  data () {
-    return {
-      mode: 'Python 3'
-    }
-  },
   components: {
     Brace
   },
-  methods: {
-    changeMode (newMode) {
-      console.log(this.mode)
-      this.mode = newMode
-      console.log(this.mode)
+  data: function () {
+      let languages: [
+        {
+          name: 'Python 3',
+          tag: 'python'
+        },
+        {
+          name: 'Python 2',
+          tag: 'python'
+        },
+        {
+          name: 'Ruby',
+          tag: 'ruby'
+        },
+        {
+          name: 'Java',
+          tag: 'java'
+        },
+        {
+          name: 'JavaScript',
+          tag: 'javascript'
+        },
+        {
+          name: 'C++',
+          tag: 'cpp'
+        },
+        {
+          name: 'Erlang',
+          tag: 'erlang'
+        }
+      ]
+    return {
+      languages: languages
+      selectedLanguage: languages[0]
     }
   }
 }
