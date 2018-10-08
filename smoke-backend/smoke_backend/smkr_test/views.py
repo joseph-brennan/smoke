@@ -12,7 +12,6 @@ import unittest
 import json
 from unittest import mock
 
-class JSONTester:
     def fetch_json(self,url):
         response = requests.get(url)
         return response.json()
@@ -34,22 +33,22 @@ def mocked_requests_get(*args,**kwargs):
                 self.status_code = status_code
                 self.json_string = json_string
 
-            def json_string:
-                data = """
-                {
-                    "researcher": {
-                        "name": "Ford Prefect",
-                        "species": "Betelgeusian",
-                        "relatives": [
-                            {
-                                "name": "Zaphod Beeblebrox",
-                                "species": "Betelgeusian"
-                            }
-                        ]
-                    }
-                }
-                """
-                json_string = json.dumps(data)
+##            def json_string:
+##                data = """
+##                {
+##                    "researcher": {
+##                        "name": "Ford Prefect",
+##                        "species": "Betelgeusian",
+##                        "relatives": [
+##                            {
+##                                "name": "Zaphod Beeblebrox",
+##                                "species": "Betelgeusian"
+##                            }
+##                        ]
+##                    }
+##                }
+##                """
+##                json_string = json.dumps(data)
 
             def json(self):
                 return self.json_data
