@@ -1,5 +1,18 @@
 <template>
   <div class = "editor">
+    <b-dropdown v-model="selectedLanguage">
+      <button slot="trigger" class="button is-primary">
+        <span>{{ selectedLanguage.name }}</span>
+        <b-icon icon="arrow-down"/>
+      </button>
+
+      <b-dropdown-item v-for="lang in languages"
+                       v-bind:data="lang"
+                       v-bind:key="lang.name"
+                       v-bind:value="lang.value">
+                       {{ lang.name }}
+      </b-dropdown-item>
+    </b-dropdown>
   </div>
 </template>
 
