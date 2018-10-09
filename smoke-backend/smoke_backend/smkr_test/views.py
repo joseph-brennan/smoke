@@ -14,12 +14,8 @@ import json
 blueprint = Blueprint('JSON', __name__, url_prefix='/JSON')
 @blueprint.route('/test', methods=['GET'])
 def stringify_json():
-    data = request.get_json()
-    string = json.dumps(data)
-    os.putenv(join(string))
-    process = subprocess.Popen(run_smkr.sh, shell=True, stdout=subprocess.PIPE)
-    process.wait()
-    print (process.returncode)
-    #value = subprocess.check_output(['run_smkr.sh', echo])
-    return string
+    data = request.get_json() ##__name__ = JSON object, data = __name__
+    variable = json.dumps(data) ##string = stringified JSON object
+    client = docker.from_env()
+    return variable
 
