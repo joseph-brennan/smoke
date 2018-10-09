@@ -1,4 +1,4 @@
-from .smoke_backend.smkr_test.views import stringify_json
+from smoke_backend.smkr_test.views import stringify_json
 import sys
 #sys.path.insert(0, '/Desktop/CS3250/smoke/smoke-backend/smoke_backend/smkr_test')
 import views
@@ -14,7 +14,7 @@ def mocked_requests_get(*args,**kwargs):
             def __init__(self, json_data, status_code):
                 self.json_data = json_data
                 self.status_code = status_code
-                self.json_string = json_string
+                self.json_string = json.dumps(json_data)
 
             #def json_string:
                 

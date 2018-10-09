@@ -22,8 +22,9 @@ def stringify_json(data):
     data = request.get_json()
     string = json.dumps(data)
     os.putenv(join(string))
-    #stringify here or in script?
-    subprocess.call(['./run_smkr.sh']) 
+    process = subprocess.Popen(run_smkr.sh, shell=True, stdout=subprocess.PIPE)
+    process.wait()
+    print (process.returncode)
     #value = subprocess.check_output(['run_smkr.sh', echo])
     return string
 
