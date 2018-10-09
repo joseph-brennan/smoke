@@ -10,7 +10,6 @@ import requests
 import subprocess
 import unittest
 import json
-from unittest import mock
 
 def fetch_json(self,url):
     response = requests.get(url)
@@ -18,7 +17,7 @@ def fetch_json(self,url):
 
 blueprint = Blueprint('JSON', __name__, url_prefix='/JSON')
 @blueprint.route('/test', methods=['POST'])
-def stringify_json(data):
+def stringify_json():
     data = request.get_json()
     string = json.dumps(data)
     os.putenv(join(string))
