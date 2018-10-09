@@ -23,10 +23,7 @@ def mocked_requests_get(*args,**kwargs):
     #TODO: mock the stringifyJSON method (get stringify info from Ron)
 
 class JSONTesterTest(unittest.TestCase):
-
-    # We patch 'requests.get' with our own method. The mock object is passed in to our test case method.
-     @mock.patch('requests.get', side_effect=mocked_requests_get)
-     def test_stringify(self, mock_get):
+     def test_stringify(self):
         rep = client.post(
               '/JSON/test',
               data=json.dumps({'Bryan': 'Blageolle'}),
