@@ -11,12 +11,8 @@ import subprocess
 import unittest
 import json
 
-def fetch_json(self,url):
-    response = requests.get(url)
-    return response.json()
-
 blueprint = Blueprint('JSON', __name__, url_prefix='/JSON')
-@blueprint.route('/test', methods=['POST'])
+@blueprint.route('/test', methods=['GET'])
 def stringify_json():
     data = request.get_json()
     string = json.dumps(data)
