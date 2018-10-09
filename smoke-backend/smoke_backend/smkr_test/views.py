@@ -20,9 +20,10 @@ blueprint = Blueprint('JSON', __name__, url_prefix='/JSON')
 @blueprint.route('/test', methods=['POST'])
 def stringify_json(data):
     data = request.get_json()
-    string = __name__.stringify()
+    string = json.dumps(data)
+    os.putenv(join(string))
     #stringify here or in script?
-    #subprocess.call(['./run_smkr.sh']) 
+    subprocess.call(['./run_smkr.sh']) 
     #value = subprocess.check_output(['run_smkr.sh', echo])
     return string
 
