@@ -15,7 +15,7 @@
 
     <brace style="height: 500px"
            :fontsize="'12px'"
-           :theme="'github'"
+           :theme="'xcode'"
            :mode="selectedLanguage.tag"
            :codefolding="'markbegin'"
            :softwrap="'free'"
@@ -60,14 +60,6 @@ export default{
       {
         name: 'JavaScript',
         tag: 'javascript'
-      },
-      {
-        name: 'C++',
-        tag: 'cpp'
-      },
-      {
-        name: 'Erlang',
-        tag: 'erlang'
       }
     ]
     return {
