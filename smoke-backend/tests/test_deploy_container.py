@@ -1,14 +1,10 @@
-from smoke_backend.smkr_test.views import stringify_json
-import sys
-#sys.path.insert(0, '/Desktop/CS3250/smoke/smoke-backend/smoke_backend/smkr_test')
-import views
-#import pytest
+#import factory
+#from pytest_factoryboy import register
+from smoke_backend.smkr_test import veiws
 import requests
-import subprocess
 import unittest
-from unittest import mock
 import json
-#from views import JSONTester
+
 def mocked_requests_get(*args,**kwargs):
         class MockResponse:
             def __init__(self, json_data, status_code):
