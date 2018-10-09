@@ -1,9 +1,17 @@
+<<<<<<< HEAD
 from smoke_backend.smkr_test.views import stringify_json
+=======
+#import factory
+#from pytest_factoryboy import register
+from smoke_backend.smkr_test import veiws
+>>>>>>> de9d752d7f7d5c012a8842c8b6301bb51ccb4527
 import requests
-import subprocess
 import unittest
-from unittest import mock
 import json
+<<<<<<< HEAD
+=======
+
+>>>>>>> de9d752d7f7d5c012a8842c8b6301bb51ccb4527
 def mocked_requests_get(*args,**kwargs):
         class MockResponse:
             def __init__(self, json_data, status_code):
