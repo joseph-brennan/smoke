@@ -9,7 +9,7 @@ import axios from 'axios'
 
 export default {
   methods: {
-    clicked: function () {
+    clicked () {
       axios.post('/API/v1/test', {
         data: window.btoa(this.editorCode)
       })
