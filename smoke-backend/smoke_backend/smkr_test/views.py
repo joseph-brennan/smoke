@@ -7,6 +7,7 @@ Attributes:
 
 from flask import request, jsonify, Blueprint
 import requests
+import docker
 import subprocess
 import unittest
 import json
@@ -17,5 +18,7 @@ def stringify_json():
     data = request.get_json() ##__name__ = JSON object, data = __name__
     variable = json.dumps(data) ##string = stringified JSON object
     client = docker.from_env()
+    print (client.containers.run("alpine",["echo","hello","world"])
+
     return variable
 
