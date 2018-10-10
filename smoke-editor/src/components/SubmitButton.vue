@@ -1,6 +1,6 @@
 <template>
   <button @click="clicked" class = "Button">
-    Submit Button
+    Submit
   </button>
 </template>
 
