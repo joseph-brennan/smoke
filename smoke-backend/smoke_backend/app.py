@@ -32,6 +32,7 @@ def create_app(config=None, testing=False, cli=False):
 
     return app
 
+
 def configure_app(app, testing=False):
     """Set configuration for application.
 
