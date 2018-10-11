@@ -17,8 +17,14 @@ blueprint = Blueprint('api', __name__, url_prefix='api/v1')
 @blueprint.route('/test', methods=['GET'])
 def stringify_json():
     data = request.get_json()  # __name__ = JSON object, data = __name__
+    
     variable = json.dumps(data)  # string = stringified JSON object
+    
     client = docker.from_env()
-    print (client.containers.run("alpine", ["echo", "hello world"]))
+    # print (client.containers.run("alpine", ["echo", "hello world"]))
+    
+    client.images.build(path='.', tag="alpine:test")
+    
+    result = clinet.containers.run(image="alpine:test", auto_remove=True)
 
-    return variable
+    return result
