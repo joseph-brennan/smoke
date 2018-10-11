@@ -1,6 +1,3 @@
-FROM alpine 
+FROM alpine
 
-RUN apk update
-RUN apk add vim
-RUN apk add git
-CMD ["echo", "helloworld"]
+CMD ["echo", '${TST_STRING}']
