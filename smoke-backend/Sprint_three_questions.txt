@@ -1,4 +1,4 @@
-Sprint Three question
+Sprint Three questions
 
  1. So if I'm understanding correctly our assignment, Do we need to write a code that retrieves a JSON file from where ever the file is AND be able to test that file? But just for clarification we're not converting that file to be a python file.
 
