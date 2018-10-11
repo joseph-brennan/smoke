@@ -4,7 +4,6 @@
 Attributes:
     blueprint (Flask Blueprint): The blueprint scheme for smoke. [fblueprint]_
 """
-
 from flask import request, jsonify, Blueprint
 import requests
 import docker
@@ -20,4 +19,4 @@ def stringify_json():
 
     # We will need to be able to wait for docker container to finish being run
     # and complete then pass back respnce as a JSON object 
-    return variable
+    return jsonify(variable)
