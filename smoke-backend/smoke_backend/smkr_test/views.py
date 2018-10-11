@@ -8,8 +8,6 @@ Attributes:
 from flask import request, jsonify, Blueprint
 import requests
 import docker
-import subprocess
-import unittest
 import json
 
 blueprint = Blueprint('JSON', __name__, url_prefix='/JSON')
@@ -19,5 +17,7 @@ def stringify_json():
     variable = json.dumps(data) ##string = stringified JSON object
     client = docker.from_env()
     print (client.containers.run("alpine", ["echo", "hello world"]))
-    return variable
 
+    # We will need to be able to wait for docker container to finish being run
+    # and complete then pass back respnce as a JSON object 
+    return variable
