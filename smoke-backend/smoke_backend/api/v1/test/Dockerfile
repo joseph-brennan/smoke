@@ -1,3 +1,3 @@
 FROM alpine
 
-CMD ["echo", '${TST_STRING}']
+CMD ["printenv", "STRING"]
