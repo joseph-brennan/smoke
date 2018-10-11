@@ -10,11 +10,12 @@ import requests
 import docker
 import json
 
-blueprint = Blueprint('JSON', __name__, url_prefix='/JSON')
+
+blueprint = Blueprint('api', __name__, url_prefix='api/v1')
 @blueprint.route('/test', methods=['GET'])
 def stringify_json():
-    data = request.get_json() ##__name__ = JSON object, data = __name__
-    variable = json.dumps(data) ##string = stringified JSON object
+    data = request.get_json()  ##__name__ = JSON object, data = __name__
+    variable = json.dumps(data)  ##string = stringified JSON object
     client = docker.from_env()
     print (client.containers.run("alpine", ["echo", "hello world"]))
 
