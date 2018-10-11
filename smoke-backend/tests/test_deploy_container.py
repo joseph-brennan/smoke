@@ -1,4 +1,4 @@
-from smoke_backend.smkr_test.views import stringify_json
+from smoke_backend.api.v1.test.views import stringify_json
 import requests
 import subprocess
 import unittest
