@@ -3,14 +3,13 @@ import requests
 import subprocess
 import unittest
 import json
-def mocked_requests_get(*args,**kwargs):
 
-     def test_stringify(self):
-        rep = client.post(
-              '/JSON/test',
-              data=json.dumps({'Bryan': 'Blageolle'}),
-              headers={'content-type': 'application/json'}
-              )
-        
-        assert stringify_json() == {'Bryan': 'Blageolle'}
-        
+
+def test_stringify(client):
+    rep = client.post(
+        '/JSON/test',
+        data=json.dumps({'Bryan': 'Blageolle'}),
+        headers={'content-type': 'application/json'}
+      )
+
+    assert stringify_json() == '{"Bryan": "Blageolle"}'

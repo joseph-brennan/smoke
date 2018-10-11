@@ -17,6 +17,12 @@ def stringify_json():
     client = docker.from_env()
     print (client.containers.run("alpine", ["echo", "hello world"]))
 
+<<<<<<< HEAD
     # We will need to be able to wait for docker container to finish being run
     # and complete then pass back respnce as a JSON object 
     return jsonify(variable)
+=======
+    return variable
+    # We will need to be able to wait for docker container to finish being run
+    # and complete then pass back respnce as a JSON object
+>>>>>>> ef3564b50f25442587bb7f37a471075b1be00c34
