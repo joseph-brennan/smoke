@@ -1,5 +1,5 @@
 from . import views
 
 __all__ = {
-    'views'
+    "views"
 }
