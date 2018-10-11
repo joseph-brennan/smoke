@@ -1,2 +1,6 @@
 coverage*
 .idea
+.DS_Store
+.vscode/
+.coverage
+.pytest_cache/

@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
-from .user import User
-from .privilege import Privilege
+from smoke_backend.models.user import User
+from smoke_backend.models.privilege import Privilege
 
 __all__ = [
     'User', 'Privilege'
