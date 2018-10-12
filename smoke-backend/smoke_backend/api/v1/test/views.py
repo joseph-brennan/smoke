@@ -25,6 +25,6 @@ def stringify_json():
 
     # client.images.build(path='.', tag="alpine:test")
 
-    result = client.containers.run("alpine:latest", auto_remove=True, environment=["STRING={}".format(variable)])
+    result = client.containers.run("alpine:latest", ["printenv", "STRING"], auto_remove=True, environment=["STRING={}".format(variable)])
 
     return result
