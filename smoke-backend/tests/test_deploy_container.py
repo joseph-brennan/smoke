@@ -18,4 +18,6 @@ def test_stringify(client):
         headers={'content-type': 'application/json'}
       )
 
-    assert json.loads(stringify_json()) == data
+    assert json.loads(stringify_json().decode('ASCII')) == data
+
+
