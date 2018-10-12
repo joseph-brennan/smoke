@@ -7,7 +7,10 @@ import json
 
 def test_stringify(client):
 
-    data = {'Bryan': 'Blageolle'}
+    data = {'Bryan': 'Blageolle',
+            'Joe': 'Shmo',
+            'John': 'Doe',
+            }
 
     rep = client.post(
         '/api/v1/test',
