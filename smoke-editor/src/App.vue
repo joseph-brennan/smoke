@@ -6,7 +6,7 @@
 </template>
 
 <style>
-@import '../node_modules/bulma/css/bulma.css'
+@import "../node_modules/bulma/css/bulma.css";
 </style>
 
 
@@ -19,6 +19,7 @@ export default {
   components: {
     Navbar
   },
+
   data () {
     return {
       user: Auth.user

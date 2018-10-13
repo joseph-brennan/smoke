@@ -10,7 +10,6 @@ describe('Login.vue', () => {
   })
 
   describe('Auth', () => {
-
     beforeEach(() => {
       window.onbeforeunload = () => {}
       moxios.install()
