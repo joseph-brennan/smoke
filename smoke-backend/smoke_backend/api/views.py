@@ -25,6 +25,7 @@ api = Api(blueprint)
 api.add_resource(UserResource, '/users/<int:user_id>')
 api.add_resource(UserList, '/users')
 
+
 @blueprint.route('/me', methods=['GET'])
 @jwt_required
 def me():

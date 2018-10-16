@@ -81,5 +81,6 @@ def seed():
     db.session.commit()
     click.echo("done")
 
+
 if __name__ == "__main__":
     cli()
