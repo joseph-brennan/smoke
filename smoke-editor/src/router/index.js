@@ -1,8 +1,8 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import Home from '@/components/Home'
-import Login from '@/components/Login'
-import Editor from '@/components/Editor'
+import Home from '@/pages/home'
+import Login from '@/pages/login'
+import Editor from '@/pages/editor'
 
 Vue.use(Router)
 
@@ -11,17 +11,26 @@ export default new Router({
     {
       path: '/',
       name: 'Home',
-      component: Home
+      component: Home,
+      meta: {
+        navigate: true
+      }
     },
     {
       path: '/login',
       name: 'Login',
-      component: Login
+      component: Login,
+      meta: {
+        navigate: false
+      }
     },
     {
       path: '/edit',
       name: 'Editor',
-      component: Editor
+      component: Editor,
+      meta: {
+        navigate: true
+      }
     }
   ]
 })

@@ -1,3 +1,5 @@
 #!/bin/bash
-pip install -r requirements-dev.txt
-tox
+echo -n Collection packages...
+pip install -q -r requirements-dev.txt
+echo ' Done'
+tox -e py37

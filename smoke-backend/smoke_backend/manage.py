@@ -47,6 +47,9 @@ def init():
 
     from smoke_backend.extensions import db
 
+    click.echo("drop old database")
+    db.reflect()
+    db.drop_all()
     click.echo("create database")
     db.create_all()
     click.echo("done")
@@ -60,13 +63,13 @@ def seed():
     privilege1 = Privilege(permission_level="STUDENT")
     privilege2 = Privilege(permission_level="TEACHER")
     privilege3 = Privilege(permission_level="ADMIN")
+
+    click.echo("create priveledges")
     db.session.add(privilege1)
     db.session.add(privilege2)
     db.session.add(privilege3)
-
     db.session.commit()
-
-    click.echo("create user")
+    click.echo("create user admin")
     user = User(
         username='admin',
         email='admin@mail.com',
@@ -76,8 +79,7 @@ def seed():
         )
     db.session.add(user)
     db.session.commit()
-    click.echo("created user admin")
-
+    click.echo("done")
 
 if __name__ == "__main__":
     cli()

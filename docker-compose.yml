@@ -1,9 +1,9 @@
 version: '3'
 services:
   web:
-    image: node:latest
+    image: node:8.12-alpine
     entrypoint:
-      - bash
+      - sh
       - -l
       - run.sh
     volumes:
@@ -15,9 +15,9 @@ services:
        - backend
     tty: true
   backend:
-    image: python:3.6
+    image: python:3.7-alpine3.8
     entrypoint:
-      - bash
+      - sh
       - -l
       - run.sh
     volumes:

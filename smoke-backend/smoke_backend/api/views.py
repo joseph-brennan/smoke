@@ -11,11 +11,12 @@ Attributes:
     api (Flask-RESTful): An extension for Flask to build RESTful APIs through
         ORM libraries. [frestful]_
 """
-from flask import Blueprint
+from flask import Blueprint, jsonify
 from flask_restful import Api
+from flask_jwt_extended import jwt_required, get_jwt_identity
 
-from smoke_backend.api.resources import UserResource, UserList
-
+from smoke_backend.api.resources import UserResource, UserList, UserSchema
+from smoke_backend.models import User
 
 blueprint = Blueprint('api', __name__, url_prefix='/api/v1')
 api = Api(blueprint)
@@ -23,3 +24,20 @@ api = Api(blueprint)
 
 api.add_resource(UserResource, '/users/<int:user_id>')
 api.add_resource(UserList, '/users')
+
+@blueprint.route('/me', methods=['GET'])
+@jwt_required
+def me():
+    """Show current logged in user user.
+
+    Returns:
+        user: A JSON dictionary of the user data.
+    """
+    user_identity = get_jwt_identity()
+    user = User.query.get(user_identity)
+
+    schema = UserSchema()
+
+    user_data = schema.dump(user).data
+
+    return jsonify({'user': user_data}), 200

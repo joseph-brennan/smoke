@@ -19,12 +19,12 @@ class UserSchema(ma.ModelSchema):
         password (String): The user entered password field.
     """
     password = ma.String(load_only=True, required=True)
+    privilege = ma.Function(lambda obj: obj.privilege.permission_level)
 
     class Meta:
         """Nested class which represents the metadata of the login session."""
         model = User
         sqla_session = db.session
-
 
 class UserResource(Resource):
     """Single object resource for Flask control of the user database.
