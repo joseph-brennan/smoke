@@ -66,7 +66,7 @@ def configure_extensions(app, cli):
         cli (bool): if command line interface is used, migration repository
             is created; default is false
     """
-    cors.init_app(app, headers=['Content-Type', 'Authorization'])
+    cors.init_app(app)
     db.init_app(app)
     jwt.init_app(app)
 
