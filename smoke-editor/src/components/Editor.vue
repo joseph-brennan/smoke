@@ -48,6 +48,14 @@ export default {
       {
         name: 'Ruby',
         tag: 'ruby'
+      },
+      {
+        name: 'Java',
+        tag: 'java'
+      },
+      {
+        name: 'JavaScript',
+        tag: 'javascript'
       }
     ]
     return {
