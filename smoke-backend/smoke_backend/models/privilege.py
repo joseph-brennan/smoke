@@ -1,3 +1,11 @@
+"""
+Single value SQLAlchemy model representing the privilege of a user.
+
+Typical privileged groups include a 'Teacher' (the user defining the test
+cases) or a 'Student' (the user defining the code to test).
+
+Privileged classes are ranked by an integer value.
+"""
 from smoke_backend.extensions import db
 
 
