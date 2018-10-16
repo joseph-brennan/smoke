@@ -14,6 +14,9 @@ Attributes:
 from flask import Blueprint, jsonify
 from flask_restful import Api
 from flask_jwt_extended import jwt_required, get_jwt_identity
+import requests
+import docker
+import json
 
 from smoke_backend.api.resources import UserResource, UserList, UserSchema
 from smoke_backend.models import User
@@ -42,3 +45,22 @@ def me():
     user_data = schema.dump(user).data
 
     return jsonify({'user': user_data}), 200
+
+
+@blueprint.route('/test', methods=['GET'])
+def stringify_json():
+    data = request.get_json()  # __name__ = JSON object, data = __name__
+
+    variable = json.dumps(data)  # string = stringified JSON object
+
+    client = docker.from_env()
+    # print (client.containers.run("alpine", ["echo", "hello world"]))
+
+    # client.images.build(path='.', tag="alpine:test")
+
+    result = client.containers.run("alpine:latest", ["printenv", "STRING"], auto_remove=True, environment=["STRING={}".format(variable)])
+
+    return result
+
+api.add_resource(UserResource, '/users/<int:user_id>')
+api.add_resource(UserList, '/users')
