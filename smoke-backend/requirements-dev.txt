@@ -5,7 +5,7 @@ factory_boy
 bumpversion
 wheel
 watchdog
-flake8==3.5.0
+flake8
 tox
 coverage
 click

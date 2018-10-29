@@ -1,9 +1,9 @@
 version: '3'
 services:
   web:
-    image: node:latest
+    image: node:8.12-alpine
     entrypoint:
-      - bash
+      - sh
       - -l
       - run.sh
     volumes:
@@ -15,13 +15,14 @@ services:
        - backend
     tty: true
   backend:
-    image: python:3.6
+    image: python:3.7-alpine3.8
     entrypoint:
-      - bash
+      - sh
       - -l
       - run.sh
     volumes:
       - ./smoke-backend:/smoke
+      - /var/run/docker.sock:/var/run/docker.sock
     ports:
       - "8000:8000"
     working_dir: /smoke

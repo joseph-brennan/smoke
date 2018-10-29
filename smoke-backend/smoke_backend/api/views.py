@@ -11,32 +11,48 @@ Attributes:
     api (Flask-RESTful): An extension for Flask to build RESTful APIs through
         ORM libraries. [frestful]_
 """
-
-from flask import request, jsonify,  Blueprint
+from flask import Blueprint, jsonify, request
 from flask_restful import Api
-import requests
+from flask_jwt_extended import jwt_required, get_jwt_identity
 import docker
 import json
-from smoke_backend.api.resources import UserResource, UserList
 
+from smoke_backend.api.resources import UserResource, UserList, UserSchema
+from smoke_backend.models import User
 
 blueprint = Blueprint('api', __name__, url_prefix='/api/v1')
 api = Api(blueprint)
 
-@blueprint.route('/test', methods=['GET'])
-def stringify_json():
-    data = request.get_json()  # __name__ = JSON object, data = __name__
-
-    variable = json.dumps(data)  # string = stringified JSON object
-
-    client = docker.from_env()
-    # print (client.containers.run("alpine", ["echo", "hello world"]))
-
-    # client.images.build(path='.', tag="alpine:test")
-
-    result = client.containers.run("alpine:latest", ["printenv", "STRING"], auto_remove=True, environment=["STRING={}".format(variable)])
-
-    return result
 
 api.add_resource(UserResource, '/users/<int:user_id>')
 api.add_resource(UserList, '/users')
+
+
+@blueprint.route('/me', methods=['GET'])
+@jwt_required
+def me():
+    """Show current logged in user user.
+
+    Returns:
+        user: A JSON dictionary of the user data.
+    """
+    user_identity = get_jwt_identity()
+    user = User.query.get(user_identity)
+
+    schema = UserSchema()
+
+    user_data = schema.dump(user).data
+
+    return jsonify({'user': user_data}), 200
+
+
+@blueprint.route('/test', methods=['POST'])
+def stringify_json():
+    variable = json.dumps(request.get_json())
+    client = docker.from_env()
+    result = client.containers.run("alpine:latest",
+                                   ["printenv", "STRING"],
+                                   auto_remove=True,
+                                   environment=["STRING={}".format(variable)])
+
+    return result.decode(), 200
