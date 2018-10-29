@@ -15,6 +15,7 @@
     "report-coverage": "codecov"
   },
   "dependencies": {
+    "@casl/ability": "^2.5.0",
     "@casl/vue": "^0.4.3",
     "axios": "^0.18.0",
     "brace": "^0.11.1",
