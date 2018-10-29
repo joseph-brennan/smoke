@@ -1,7 +1,7 @@
 version: "3"
 services:
   web:
-    build: ./smoke-editor
+    image: mhart/alpine-node:latest
     volumes:
       - .:/smoke
     working_dir: /smoke/smoke-editor
@@ -10,20 +10,18 @@ services:
       - .travis/test.sh
     tty: true
   backend:
-    image: python:3.6
+    image: python:3.7-alpine3.8
     entrypoint:
-      - bash
-      - -l
+      - sh
       - test.sh
     volumes:
       - ./smoke-backend:/smoke
     working_dir: /smoke
     tty: true
   smokr:
-    image: python:3.6
+    image: python:3.7-alpine3.8
     entrypoint:
-      - bash
-      - -l
+      - sh
       - test.sh
     volumes:
       - ./smokr:/smoke

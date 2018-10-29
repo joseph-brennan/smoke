@@ -10,13 +10,16 @@ from flask_jwt_extended import (
     create_access_token,
     create_refresh_token,
     jwt_refresh_token_required,
-    get_jwt_identity
+    jwt_required,
+    get_jwt_identity,
+    get_raw_jwt
 )
 
 from smoke_backend.models import User
 from smoke_backend.extensions import pwd_context, jwt
 
 
+blacklist = set()
 blueprint = Blueprint('auth', __name__, url_prefix='/auth')
 
 
@@ -75,6 +78,14 @@ def refresh():
         'access_token': create_access_token(identity=current_user)
     }
     return jsonify(ret), 200
+
+
+@blueprint.route('/logout', methods=['DELETE'])
+@jwt_required
+def logout():
+    jti = get_raw_jwt()['jti']
+    blacklist.add(jti)
+    return jsonify({"msg": "Successfully logged out"}), 200
 
 
 @jwt.user_loader_callback_loader
