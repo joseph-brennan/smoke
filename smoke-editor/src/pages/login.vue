@@ -50,6 +50,7 @@ export default {
           password: this.credentials.password
         })
         this.$emit('login', store.state.user)
+        this.$router.push('/')
       } catch (err) {
         this.error = err
       }

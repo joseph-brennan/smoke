@@ -22,6 +22,7 @@ services:
       - run.sh
     volumes:
       - ./smoke-backend:/smoke
+      - /var/run/docker.sock:/var/run/docker.sock
     ports:
       - "8000:8000"
     working_dir: /smoke

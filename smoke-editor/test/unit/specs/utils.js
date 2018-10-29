@@ -1,10 +1,18 @@
+import Vue from 'vue'
 import moxios from 'moxios'
 
-function stubAsync (resource, resp) {
-  const API_URL = process.env.API_URL || 'http://localhost:8000'
-  moxios.stubRequest(API_URL + resource, resp)
+export async function expectAsync (status, resp) {
+  moxios.wait(() => {
+    let request = moxios.requests.mostRecent()
+    request.respondWith({
+      status: status,
+      response: resp
+    })
+  })
 }
 
-export {
-  stubAsync
+export function mount (Component, options = {}) {
+  const Constructor = Vue.extend(Component)
+  Object.assign(Constructor.options, options)
+  return new Constructor().$mount()
 }

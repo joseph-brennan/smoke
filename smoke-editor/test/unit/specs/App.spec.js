@@ -1,12 +1,11 @@
 import App from '@/App'
 import Router from 'vue-router'
-import { mount } from '@vue/test-utils'
 import store from '@/store'
-import { stubAsync } from './utils'
-
+import moxios from 'moxios'
+import { expectAsync, mount } from './utils'
 
 describe('App.vue', () => {
-  let wrapper, vm = undefined, undefined
+  let vm
 
   beforeEach(() => {
     let router = new Router({
@@ -24,8 +23,12 @@ describe('App.vue', () => {
         }
       ]
     })
-    wrapper = mount(App, {router: router, store: store})
-    vm = wrapper.vm
+    vm = mount(App, {router: router, store: store})
+    moxios.install()
+  })
+
+  afterEach(() => {
+    moxios.uninstall()
   })
 
   it('should render correct contents', () => {
@@ -33,46 +36,38 @@ describe('App.vue', () => {
   })
 
   it('should not logout unless logged in', (done) => {
-    const loggedIn = vm.isLoggedIn
-    stubAsync('/auth/logout', {
-      status: 200,
-      response: {
-        success: true
-      }
-    })
-    vm.logout().then(() => {
-      expect(vm.isLoggedIn).to.equal(loggedIn)
-      expect(vm.user).to.equal(null)
-    }).then(done, done)
+    store.state.auth = false
+    const isLoggedIn = vm.isLoggedIn
+    vm.logout()
+    expectAsync(200, {msg: 'Success'})
+
+    expect(vm.user).to.equal(null)
+    expect(vm.isLoggedIn).to.equal(isLoggedIn)
+
+    done()
   })
 
   it('should logout if backend fails', (done) => {
     store.state.auth = { access_token: true }
-    stubAsync('/auth/logout', {
-      status: 401
-    })
-    vm.logout().then(() => {
-      expect(vm.user).to.equal(null)
-    }).then(done, done)
+    vm.logout()
+    expectAsync(401, {})
+
+    expect(vm.user).to.equal(null)
+
+    done()
   })
 
   it('should logout if logged in', (done) => {
-    store.state.user = 42
-    const isLoggedIn = vm.isLoggedIn
-    stubAsync('/auth/logout', {
-      status: 200,
-      response: {
-        msg: 'Success'
-      }
-    })
-    vm.logout().then(() => {
-      expect(vm.user).to.equal(null)
-      expect(vm.isLoggedIn).to.not.equal(isLoggedIn)
-    }).then(done, done)
+    store.state.auth = {access_token: true}
+    vm.logout()
+    expectAsync(200, {msg: 'Success'})
+
+    expect(vm.user).to.equal(null)
+
+    done()
   })
 
   it('should add links to navigatable routes', () => {
     expect(vm.links).to.have.length(1)
-  }
-)
+  })
 })

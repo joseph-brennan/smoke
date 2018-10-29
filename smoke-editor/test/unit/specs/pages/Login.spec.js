@@ -1,13 +1,13 @@
 import Login from '@/pages/login'
+import store from '@/store'
 import moxios from 'moxios'
-import { stubAsync } from '../utils'
-import { mount } from '@vue/test-utils'
+import { expectAsync, mount } from '../utils'
 
 describe('Login.vue', () => {
-  let wrapper, vm = undefined, undefined
+  let vm
 
   it('should render correct contents', () => {
-    vm = mount(Login).vm
+    vm = mount(Login)
     expect(vm.$el.querySelector('#submit').textContent)
       .contains('Login')
   })
@@ -15,52 +15,38 @@ describe('Login.vue', () => {
   describe('Auth', () => {
     beforeEach(() => {
       window.onbeforeunload = () => {}
+      vm = mount(Login, {store: store})
       moxios.install()
-      wrapper = mount(Login)
-      vm = wrapper.vm
     })
 
     afterEach(() => {
       moxios.uninstall()
     })
 
-    it('should set error message on 401', (done) => {
+    it('should not set user on 401', (done) => {
       vm.$data.credentials.username = 'bogus'
       vm.$data.credentials.password = 'bogus'
-      stubAsync('/auth/login', {
-        status: 401,
-        response: {
-          message: 'Unauthorized'
-        }
-      })
 
-      wrapper.vm.login().then(() => {
-        expect(vm.geterror()).contains('401')
-        expect(vm.geterror()).contains('401')
-      }).then(done, done)
+      vm.user = null
+
+      vm.login()
+      expectAsync(401, {message: 'Unauthorized'})
+
+      expect(vm.user).to.equal(null)
+
+      done()
     })
 
-    it('should not set error message on 200', (done) => {
+    it('should set user on 200', (done) => {
       vm.$data.credentials.username = 'bogus'
       vm.$data.credentials.password = 'bogus'
-      stubAsync('/auth/login', {
-        status: 200,
-        response: {
-          access_token: 'Hooray!'
-        }
-      })
+      vm.login()
+      expectAsync(200, { access_token: 'Hooray!' })
+      expectAsync(200, { user: 42 })
 
-      stubAsync('/api/v1/me', {
-        status: 200,
-        response: {
-          user: 42
-        }
-      })
+      expect(vm.user).to.not.equal(null)
 
-      wrapper.vm.login().then(() => {
-        expect(vm.user).to.not.equal(null)
-        expect(vm.geterror()).to.equal('')
-      }).then(done, done)
+      done()
     })
   })
 })

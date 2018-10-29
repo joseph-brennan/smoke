@@ -10,7 +10,7 @@ services:
       - .travis/test.sh
     tty: true
   backend:
-    image: python:3.7
+    image: python:3.7-alpine3.8
     entrypoint:
       - sh
       - test.sh

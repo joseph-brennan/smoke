@@ -54,7 +54,7 @@ lint: ## check style with flake8
 	flake8 smoke tests
 
 test: ## run tests quickly with the default Python
-	py.test
+	python -W ignore::DeprecationWarning -m pytest --cov=smoke_backend
 
 test-all: ## run tests on every Python version with tox
 	tox

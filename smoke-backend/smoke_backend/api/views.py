@@ -46,17 +46,13 @@ def me():
     return jsonify({'user': user_data}), 200
 
 
-@blueprint.route('/test', methods=['GET'])
+@blueprint.route('/test', methods=['POST'])
 def stringify_json():
-    data = request.get_json()  # __name__ = JSON object, data = __name__
-
-    variable = json.dumps(data)  # string = stringified JSON object
-
+    variable = json.dumps(request.get_json())
     client = docker.from_env()
-    # print (client.containers.run("alpine", ["echo", "hello world"]))
+    result = client.containers.run("alpine:latest",
+                                   ["printenv", "STRING"],
+                                   auto_remove=True,
+                                   environment=["STRING={}".format(variable)])
 
-    # client.images.build(path='.', tag="alpine:test")
-
-    result = client.containers.run("alpine:latest", ["printenv", "STRING"], auto_remove=True, environment=["STRING={}".format(variable)])
-
-    return result
+    return result.decode(), 200

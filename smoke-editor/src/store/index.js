@@ -2,12 +2,10 @@ import Vue from 'vue'
 import Vuex from 'vuex'
 import axios from 'axios'
 import createPersistedState from 'vuex-persistedstate'
-
+import {API_URL} from '@/definitions'
 import store from '@/store'
 
 Vue.use(Vuex)
-
-const API_URL = process.env.API_URL || 'http://localhost:8000'
 
 const state = () => ({
   auth: null,
@@ -36,7 +34,9 @@ const actions = {
         Authorization: `Bearer ${resp.data.access_token}`
       }
     })
-    commit('SET_USER', resp.data.user)
+    if (resp.status >= 200 && resp.status < 300) {
+      commit('SET_USER', resp.data.user)
+    }
   },
 
   async logout ({ commit }) {

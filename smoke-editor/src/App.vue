@@ -57,6 +57,7 @@ export default {
       }
     })
   },
+
   data () {
     return {
       links: []
@@ -74,6 +75,7 @@ export default {
     async logout () {
       try {
         await store.dispatch('logout')
+        this.$router.push('/login')
       } catch (err) {
         store.state.user = null
       }

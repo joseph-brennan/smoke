@@ -4,9 +4,12 @@ import Home from '@/pages/home'
 import Login from '@/pages/login'
 import Editor from '@/pages/editor'
 
+import routerBefore from './before'
+
 Vue.use(Router)
 
 export default new Router({
+  beforeEach: routerBefore,
   routes: [
     {
       path: '/',
