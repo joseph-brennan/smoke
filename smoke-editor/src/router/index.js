@@ -38,9 +38,6 @@ export default new Router({
       meta: {
         navigate: true
       }
-      path: '/newtest',
-      name: 'TestForm',
-      component: TestForm
     }
   ]
 })
