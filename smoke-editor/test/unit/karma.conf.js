@@ -11,13 +11,7 @@ module.exports = function (config) {
     // 1. install corresponding karma launcher
     //    http://karma-runner.github.io/0.13/config/browsers.html
     // 2. add it to the `browsers` array below.
-    browsers: ['ChromeHeadlessNoSandbox'],
-    customLaunchers: {
-      ChromeHeadlessNoSandbox: {
-        base: 'ChromeHeadless',
-        flags: ['--no-sandbox']
-      }
-    },
+    browsers: ['jsdom'],
     frameworks: ['mocha', 'chai'],
     reporters: ['spec', 'coverage'],
     files: [
@@ -36,6 +30,7 @@ module.exports = function (config) {
       reporters: [
         { type: 'lcov', subdir: '.' },
         { type: 'text-summary' },
+        { type: 'html' },
         { type: 'json', subdir: '.' }
       ]
     }

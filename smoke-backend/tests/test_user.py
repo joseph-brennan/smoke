@@ -227,6 +227,7 @@ def test_get_all_user(client, db, user_factory, admin_headers):
     for user in users:
         assert any(u['id'] == user.id for u in results['results'])
 
+
 def test_permission_table(client, db, admin_headers):
 
     permissions = Privilege.query.all()
@@ -235,3 +236,14 @@ def test_permission_table(client, db, admin_headers):
     assert permissions[0].id == 1
     assert permissions[1].permission_level == "TEACHER"
     assert permissions[2].permission_level == "ADMIN"
+
+
+def test_get_current_user(client, db, admin_user, admin_headers):
+
+    rep = client.get('/api/v1/me', headers=admin_headers)
+    assert rep.status_code == 200
+
+    data = rep.get_json()['user']
+    assert data['username'] == admin_user.username
+    assert data['email'] == admin_user.email
+    assert data['active'] == admin_user.active

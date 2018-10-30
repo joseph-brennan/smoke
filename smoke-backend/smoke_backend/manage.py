@@ -2,7 +2,7 @@
 """Top level management of the application through flask. [f]_
 
 This module controls/manages the functioning of the smoke backend application.
-It is responsible for\:
+It is responsible for:
 
     * Creating the default user
     * Signing the user in
@@ -47,6 +47,9 @@ def init():
 
     from smoke_backend.extensions import db
 
+    click.echo("drop old database")
+    db.reflect()
+    db.drop_all()
     click.echo("create database")
     db.create_all()
     click.echo("done")
@@ -54,19 +57,33 @@ def init():
 
 @cli.command("seed")
 def seed():
+    """Seeds the database with the standard privilege values.
+
+    Relative values noted here are in *descending order*, in that a relative
+    privilege value of 3 is the highest value.
+
+    Function also initializes the default user, with a privilege value of
+    Admin (3).
+
+    Values:
+        Student: User which defines the code to test. (Relative value: 1)
+        Teacher: User which defines the test cases. (Relative value: 2)
+        Admin: User which has complete access. (Relative value 3)
+
+    """
     from smoke_backend.extensions import db
     from smoke_backend.models import Privilege, User
 
     privilege1 = Privilege(permission_level="STUDENT")
     privilege2 = Privilege(permission_level="TEACHER")
     privilege3 = Privilege(permission_level="ADMIN")
+
+    click.echo("create priveledges")
     db.session.add(privilege1)
     db.session.add(privilege2)
     db.session.add(privilege3)
-
     db.session.commit()
-
-    click.echo("create user")
+    click.echo("create user admin")
     user = User(
         username='admin',
         email='admin@mail.com',
@@ -76,7 +93,7 @@ def seed():
         )
     db.session.add(user)
     db.session.commit()
-    click.echo("created user admin")
+    click.echo("done")
 
 
 if __name__ == "__main__":
