@@ -3,8 +3,12 @@
     <h1 class="title is-primary">New Test Form</h1>
     <div class="form-group ">
       <div class="box">
+        <router-link to="/">Click Button</router-link>
+        <router-view/>
+      </div>
+      <div class="box">
         <label class="label">Test Name*</label>
-        <input clss="text" placeholder="Test Name"/>
+        <input class="text" placeholder="Test Name"/>
       </div>
       <div class="box">
         <label class="label">Statements*</label>
