@@ -1,17 +1,13 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-<<<<<<< HEAD
 import Home from '@/components/Home'
 import Login from '@/components/Login'
 import Editor from '@/components/Editor'
 import TestForm from '@/components/TestForm'
-=======
 import Home from '@/pages/home'
 import Login from '@/pages/login'
 import Editor from '@/pages/editor'
-
 import routerBefore from './before'
->>>>>>> origin/develop
 
 Vue.use(Router)
 
