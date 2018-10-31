@@ -1,144 +1,49 @@
 <template>
   <section class="container">
+    <h3 v-if="error !== ''">{{ geterror() }}</h3>
+    <div class="box">
     <h1 class="title is-primary">New Test Form</h1>
     <div class="form-group">
-      <div class="box">
-        <label class="label">Test Name*</label>
-        <input class="input" type="text" placeholder="User's First Test"/>
-      </div>
-      <div class="box">
-        <label class="label">Statements*</label>
-        <textarea class="textarea" rows="5" cols="80"></textarea>
-      </div>
-      <div class="box">
-        <label class="label">Tags (max 5 tags)</label>
-        <textarea class="textarea" rows="5" cols="80"></textarea>
-      </div>
-      <div class="box">
-        <label class="label">Difficulty</label>
-        <div class="select">
-          <select>
-            <option>Select Difficulty</option>
-            <option>Easy</option>
-            <option>Medium</option>
-            <option>Hard</option>
-            <option>Luke-sanity</option>
-          </select>
-        </div>
-      </div>
-      <div class="box">
-        <label class="label">Input Description*</label>
-        <textarea class="textarea" rows="7" cols="80"></textarea>
-      </div>
-      <div class="box">
-        <label class="label">Output Description*</label>
-        <textarea class="textarea" rows="7" cols="80"></textarea>
-      </div>
-      <div class="box">
-        <label class="label">Input Description*</label>
-        <textarea class="textarea" rows="7" cols="80"></textarea>
-      </div>
-      <div class="box">
-        <label class="label">Constraints*</label>
-        <textarea class="textarea" rows="7" cols="80"></textarea>
-      </div>
-      <div class="box">
-        <label class="label">Test Cases*</label>
-        <label class="label">Test 1</label>
-        <div class="columns">
-          <div class="column">
-            <textarea class="textarea" rows="5" placeholder="Input"></textarea>
-          </div>
-          <div class="column">
-            <textarea class="textarea" rows="5" placeholder="Output"></textarea>
-          </div>
-        </div>
-        <label class="label">Validator 1</label>
-        <div class="columns">
-          <div class="column">
-            <textarea class="textarea" rows="5" placeholder="Input"></textarea>
-          </div>
-          <div class="column">
-            <textarea class="textarea" rows="5" placeholder="Output"></textarea>
-          </div>
-        </div>
-      </div>
-      <div class="box">
-        <label class="label">Test Cases*</label>
-        <label class="label">Test 2</label>
-        <div class="columns">
-          <div class="column">
-            <textarea class="textarea" rows="5" placeholder="Input"></textarea>
-          </div>
-          <div class="column">
-            <textarea class="textarea" rows="5" placeholder="Output"></textarea>
-          </div>
-        </div>
-        <label class="label">Validator 2</label>
-        <div class="columns">
-          <div class="column">
-            <textarea class="textarea" rows="5" placeholder="Input"></textarea>
-          </div>
-          <div class="column">
-            <textarea class="textarea" rows="5" placeholder="Output"></textarea>
-          </div>
-        </div>
-      </div>
-      <div class="box">
-        <label class="label">Test Cases*</label>
-        <label class="label">Test 3</label>
-        <div class="columns">
-          <div class="column">
-            <textarea class="textarea" rows="5" placeholder="Input"></textarea>
-          </div>
-          <div class="column">
-            <textarea class="textarea" rows="5" placeholder="Output"></textarea>
-          </div>
-        </div>
-        <label class="label">Validator 3</label>
-        <div class="columns">
-          <div class="column">
-            <textarea class="textarea" rows="5" placeholder="Input"></textarea>
-          </div>
-          <div class="column">
-            <textarea class="textarea" rows="5" placeholder="Output"></textarea>
-          </div>
-        </div>
-      </div>
-      <div class="box">
-        <label class="label">Test Cases*</label>
-        <label class="label">Test 4</label>
-        <div class="columns">
-          <div class="column">
-            <textarea class="textarea" rows="5" placeholder="Input"></textarea>
-          </div>
-          <div class="column">
-            <textarea class="textarea" rows="5" placeholder="Output"></textarea>
-          </div>
-        </div>
-        <label class="label">Validator 4</label>
-        <div class="columns">
-          <div class="column">
-            <textarea class="textarea" rows="5" placeholder="Input"></textarea>
-          </div>
-          <div class="column">
-            <textarea class="textarea" rows="5" placeholder="Output"></textarea>
-          </div>
-        </div>
-        <div>
-          <editor/>
-        </div>
-      </div>
+      <b-field label="Test Name*">
+        <b-input v-model="test.name" type="text"/>
+      </b-field>
+      <b-field label="Statements*"/>
+        <b-input v-model="test.statements" type="textarea"/>
+      </b-field>
+      <b-field label="Input Description*">
+        <b-input v-model="test.input_desc" type="textarea"/>
+      </b-field>
+      <b-field label="Output Description*">
+        <b-input v-model="test.output_desc" type="textarea"/>
+      </b-field>
+      <b-field label="Constraints*">
+        <b-input v-model="test.constraints" type="textarea"/>
+      </b-field>
+      <button
+        id="submit"
+        class="button"
+        is-primary
+        @click="submit">
+        Submit
+      </button>
     </div>
-  </section>
+  </div>
+</section>
 </template>
 
 <script>
-import editor from '@/components/Editor'
-
 export default {
-  components: {
-    editor
+  data () {
+    return {
+      test: {
+        name: '',
+        statements: '',
+        input_des: '',
+        output_desc: '',
+        constraints: ''
+      },
+      error: ''
+    }
   },
   meta: {
     auth: {
