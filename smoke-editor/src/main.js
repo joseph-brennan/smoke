@@ -8,7 +8,6 @@ import { abilitiesPlugin } from '@casl/vue'
 import App from './App'
 import router from './router'
 import store from './store'
-import auth from './auth'
 
 import 'buefy/dist/buefy.css'
 
@@ -23,7 +22,6 @@ const vm = new Vue({
   el: '#app',
   router,
   store,
-  auth,
   template: '<App/>',
   components: { App }
 })
