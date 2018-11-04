@@ -69,7 +69,8 @@ export default {
         await store.dispatch('logout')
         this.$router.push('/login')
       } catch (err) {
-        store.state.user = null
+	//uncomment below whenever user priveleges are implemented
+	//store.state.user = '0'
       }
     }
   }
