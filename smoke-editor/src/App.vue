@@ -69,7 +69,7 @@ export default {
         await store.dispatch('logout')
         this.$router.push('/login')
       } catch (err) {
-	store.state.user = student
+	store.state.user = 'student'
       }
     }
   }
