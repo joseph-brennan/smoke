@@ -29,15 +29,7 @@
       </div>
     </nav>
     <section class="main-content columns">
-
-      <aside class="column is-2 section">
-        <ul class="menu-list"/>
-      </aside>
-
-      <div class="container column is-10">
-        <router-view />
-      </div>
-
+      <router-view />
     </section>
   </div>
 </template>
@@ -77,7 +69,8 @@ export default {
         await store.dispatch('logout')
         this.$router.push('/login')
       } catch (err) {
-        store.state.user = null
+	//uncomment below whenever user priveleges are implemented
+	//store.state.user = '0'
       }
     }
   }
