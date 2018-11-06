@@ -1,11 +1,13 @@
 import Vue from 'vue'
+import Buefy from 'buefy'
 import Resource from 'vue-resource'
 import Router from 'vue-router'
-import Bulma from 'vue-bulma-components'
+import Vuex from 'vuex'
 
 Vue.use(Router)
 Vue.use(Resource)
-Vue.use(Bulma)
+Vue.use(Buefy)
+Vue.use(Vuex)
 Vue.config.productionTip = false
 
 // require all test files (files that ends with .spec.js)
