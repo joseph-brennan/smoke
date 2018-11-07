@@ -5,7 +5,7 @@
       role="navigation"
       aria-label="main navigation">
       <div class="navbar-brand">
-        <router-links
+        <router-link
           v-for="link in links"
           :key="link.path"
           :to="link.path"
@@ -69,8 +69,8 @@ export default {
         await store.dispatch('logout')
         this.$router.push('/login')
       } catch (err) {
-	//uncomment below whenever user priveleges are implemented
-	//store.state.user = '0'
+        // uncomment below whenever user priveleges are implemented
+        // store.state.user = '0'
       }
     }
   }
