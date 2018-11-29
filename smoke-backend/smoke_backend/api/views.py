@@ -30,7 +30,7 @@ api.add_resource(UserList, '/users')
 
 @blueprint.route('/me', methods=['GET'])
 @jwt_required
-def me():
+def user():
     """Show current logged in user user.
 
     Returns:
