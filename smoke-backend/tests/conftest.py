@@ -13,7 +13,7 @@ def app():
 
 
 @pytest.fixture
-def db(app):
+def _db(app):
     _db.app = app
 
     with app.app_context():
