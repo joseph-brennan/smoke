@@ -17,19 +17,9 @@ before_install:
 
 script:
   - .travis/run.sh
-  addons:
-  sonarcloud:
-    organization: "sonarcloud_organization_key" # the key of the org you chose at step #3
-    token:
-      secure: ********* # encrypted value of your token
-script:
-  # other script steps might be done before running the actual analysis
   - sonar-scanner
   addons:
   sonarcloud:
-    organization: "sonarcloud_organization_key" # the key of the org you chose at step #3
+    organization: "joseph-brennan-github" # the key of the org you chose at step #3
     token:
-      secure: ********* # encrypted value of your token
-script:
-  # the following command line builds the project, runs the tests with coverage and then execute the SonarCloud analysis
-  - mvn clean org.jacoco:jacoco-maven-plugin:prepare-agent install sonar:sonar
+      secure: "u3EhCWAhRcff2uzyzc8A5vkXtiULMOJhqLJUzbiZ2eBSMjvT7hWZiH2UFXs2CVUQAawUf4rzbPRcjZt7jDZGyS78CmVK6r6wbfouXjJquNPdcH8MNqqzJAcL7s/MPCL+gPlnv1Icl8w32A/SqQ1K1fUgLwOdzZG9rFdHhyuOH+U3MpjAU8z7l+z6TtHUj8YpecXWqp40ue3rc0AneVKJkNAUE52W3Dod4RLFGOOuy2K20++o9ACtOtLlLSwcVfbD1mQZVG5xG4ChNyvIrbQ1Xptx0qCnfv5eyl3dXgQRzDs73kzddBzJAyCGJCDqwobFnl9pOYoPGYKpi5htUWbd9HVvYiN9EaBxoV+R4rJMcJF64pOTdtkIRATO9m/B8MnrU1p4H7sI1VNyLwIepFsdjSwho1P+qRa436Rh7sgTfBl3h9voIgfjk16m+LB5UU09y1OnMre+ve8tedtMEjJodcbfvTOhVp6KXKc0F/e3gkINHpFJtD1OtqII6M9sWZlrNAlcYpqbVwoL4DFn7l3lgZwEFVzaXl6YvU1E/CRV+FtXu7Cy/UPPDGFGs0p0tZQU9YKP+0PjSixR/lyRoxjIwSzKjhUBfCkPCL5V0mJ84WOiglMjtprDteBYiUWSuukYBKJH0AlPO2NNxfcA1/15pHm43klQSo9brIB1oe1IN8g="
